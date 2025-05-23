@@ -38,3 +38,8 @@ Route::group(['prefix' => 'star'], function () {
     Route::view('/form', 'star.form');
     Route::view('/complete', 'star.complete');
 });
+
+Route::group(['prefix' => 'login'], function () {
+    Route::get('/line', 'LoginController@lineLogin');
+    Route::get('/line/callBack', 'LoginController@lineLoginCallback');
+});

@@ -108,9 +108,12 @@
 <script src="./assets/lib/ua-parser.min.js"></script>
 <script src="./assets/lib/clipboard.min.js"></script>
 <script src="./assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
-
-
 <script src="./assets/js/main.min.js"></script>
+<script>
+    $('.-line').click(function () {
+        window.location.href = '/login/line';
+    });
+</script>
 
 
 </body>
