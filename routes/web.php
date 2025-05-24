@@ -21,22 +21,24 @@ Route::view('/sales', 'sales');
 Route::view('/video', 'video');
 Route::view('/winners', 'winners');
 
-Route::group(['prefix' => 'morning'], function () {
-    Route::view('/game', 'morning.game');
-    Route::view('/form', 'morning.form');
-    Route::view('/complete', 'morning.complete');
-});
+Route::group(['middleware' => 'loginAuth'], function () {
+    Route::group(['prefix' => 'morning'], function () {
+        Route::view('/game', 'morning.game');
+        Route::view('/form', 'morning.form');
+        Route::view('/complete', 'morning.complete');
+    });
 
-Route::group(['prefix' => 'mist'], function () {
-    Route::view('/game', 'mist.game');
-    Route::view('/form', 'mist.form');
-    Route::view('/complete', 'mist.complete');
-});
+    Route::group(['prefix' => 'mist'], function () {
+        Route::view('/game', 'mist.game');
+        Route::view('/form', 'mist.form');
+        Route::view('/complete', 'mist.complete');
+    });
 
-Route::group(['prefix' => 'star'], function () {
-    Route::view('/game', 'star.game');
-    Route::view('/form', 'star.form');
-    Route::view('/complete', 'star.complete');
+    Route::group(['prefix' => 'star'], function () {
+        Route::view('/game', 'star.game');
+        Route::view('/form', 'star.form');
+        Route::view('/complete', 'star.complete');
+    });
 });
 
 Route::group(['prefix' => 'login'], function () {
@@ -45,3 +47,5 @@ Route::group(['prefix' => 'login'], function () {
     Route::get('/fb', 'LoginController@fbLogin');
     Route::get('/fb/callBack', 'LoginController@fbLoginCallback');
 });
+
+Route::get('/logout', 'LoginController@logout');

@@ -51,7 +51,8 @@
                     </div>
                     <div class="nav-logout">
                         @if (session()->has('user'))
-                            <button class="btn -lg" id="logout-button">登出</button>
+{{--                            <button class="btn -lg" id="logout-button">登出</button>--}}
+                            <a href="/logout" class="btn -lg">登出</a>
                         @else
                             <a href="/login" class="btn -lg">馬上登入</a>
                         @endif

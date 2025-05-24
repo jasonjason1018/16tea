@@ -16,17 +16,17 @@
 
     <link rel="manifest" href="./../site.json" crossorigin="use-credentials">
     <link rel="shortcut icon" href="./../favicon.ico" />
-    <link rel="apple-touch-icon" href="./../assets/image/touch/logo.png">
+    <link rel="apple-touch-icon" href="/assets/image/touch/logo.png">
 
     
-    <link rel="stylesheet" href="./../assets/css/normalize.min.css">
-    <link rel="stylesheet" href="./../assets/lib/overlayScrollbars/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="./../assets/css/main.min.css">
+    <link rel="stylesheet" href="/assets/css/normalize.min.css">
+    <link rel="stylesheet" href="/assets/lib/overlayScrollbars/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="/assets/css/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
     
-<link rel="stylesheet" href="./../assets/css/game.min.css">
+<link rel="stylesheet" href="/assets/css/game.min.css">
 
     <meta name="theme-color" content="#ffffff">
 
@@ -58,23 +58,23 @@ gtag('config', 'G-GNB1EGND17');
                 <div class="header-logo">
                     
 <a href="./../index.html">
-    <img src="./../assets/image/layout/logo.png" alt="">
+    <img src="/assets/image/layout/logo.png" alt="">
 </a>
 <div class="header-subject">
-    <img src="./../assets/image/layout/subject-wt.png" alt="">
+    <img src="/assets/image/layout/subject-wt.png" alt="">
 </div>
 
                 </div>
                 
                 <button class="header-btn" data-burger>
-                    <img src="./../assets/image/layout/menu.svg" alt="">
+                    <img src="/assets/image/layout/menu.svg" alt="">
                 </button>
                 <div class="header-nav">
                     <div class="nav">
                         <div class="nav-user">
                             <div class="nav-pic">
                                 <!-- 若無圖片請放預設圖：/assets/image/layout/user.svg -->
-                                <img src="./../assets/image/layout/user.svg" alt="">
+                                <img src="/assets/image/layout/user.svg" alt="">
                             </div>
                             <div class="nav-name">訪客</div>
                         </div>
@@ -90,13 +90,13 @@ gtag('config', 'G-GNB1EGND17');
                             </div>
                             <div class="nav-social">
                                 <a href="https://www.facebook.com/tw16asahi" target="_blank" rel="noopener noreferrer">
-                                    <img src="./../assets/image/icon/facebook.webp" alt="">
+                                    <img src="/assets/image/icon/facebook.webp" alt="">
                                 </a>
                                 <a href="https://www.instagram.com/16cha_tw/" target="_blank" rel="noopener noreferrer">
-                                    <img src="./../assets/image/icon/instagram.webp" alt="">
+                                    <img src="/assets/image/icon/instagram.webp" alt="">
                                 </a>
                                 <a href="https://asahisoftdrinks.com.tw/16cha/" target="_blank" rel="noopener noreferrer">
-                                    <img src="./../assets/image/icon/16cha.webp" alt="">
+                                    <img src="/assets/image/icon/16cha.webp" alt="">
                                 </a>
                             </div>
                             <div class="nav-logout">
@@ -123,22 +123,22 @@ gtag('config', 'G-GNB1EGND17');
                         快來尋找收集吧！
                     </div>
                     <div class="intro-16">
-                        <img src="./../assets/image/other/16/1.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/2.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/3.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/4.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/5.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/6.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/7.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/8.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/9.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/10.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/11.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/12.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/13.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/14.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/15.png" class="intro-item" alt="">
-                        <img src="./../assets/image/other/16/16.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/1.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/2.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/3.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/4.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/5.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/6.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/7.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/8.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/9.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/10.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/11.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/12.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/13.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/14.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/15.png" class="intro-item" alt="">
+                        <img src="/assets/image/other/16/16.png" class="intro-item" alt="">
                     </div>
                 </div>
                 <button class="intro-btn" data-step-btn="task"></button>
@@ -154,7 +154,7 @@ gtag('config', 'G-GNB1EGND17');
                         </div>
                         <div class="task-content">
                             <div class="task-item">
-                                <img class="task-pic" src="./../assets/image/map2/1.png" alt="">
+                                <img class="task-pic" src="/assets/image/map2/1.png" alt="">
                                 <div class="task-txt">
                                     <div class="task-name">麥芽</div>
                                     <div class="task-desc">消化神助攻，順暢又健康</div>
@@ -162,7 +162,7 @@ gtag('config', 'G-GNB1EGND17');
                                 <div class="task-num"></div>
                             </div>
                             <div class="task-item">
-                                <img class="task-pic" src="./../assets/image/map2/2.png" alt="">
+                                <img class="task-pic" src="/assets/image/map2/2.png" alt="">
                                 <div class="task-txt">
                                     <div class="task-name">黑米</div>
                                     <div class="task-desc">營養在線負擔不見，誰吃誰健康</div>
@@ -170,7 +170,7 @@ gtag('config', 'G-GNB1EGND17');
                                 <div class="task-num"></div>
                             </div>
                             <div class="task-item">
-                                <img class="task-pic" src="./../assets/image/map2/3.png" alt="">
+                                <img class="task-pic" src="/assets/image/map2/3.png" alt="">
                                 <div class="task-txt">
                                     <div class="task-name">大麥</div>
                                     <div class="task-desc">止渴有一套，清爽好消化</div>
@@ -178,7 +178,7 @@ gtag('config', 'G-GNB1EGND17');
                                 <div class="task-num"></div>
                             </div>
                             <div class="task-item">
-                                <img class="task-pic" src="./../assets/image/map2/4.png" alt="">
+                                <img class="task-pic" src="/assets/image/map2/4.png" alt="">
                                 <div class="task-txt">
                                     <div class="task-name">玉蜀黍</div>
                                     <div class="task-desc">香甜不膩人，還能默默幫腸胃<br>加速</div>
@@ -186,7 +186,7 @@ gtag('config', 'G-GNB1EGND17');
                                 <div class="task-num"></div>
                             </div>
                             <div class="task-item">
-                                <img class="task-pic" src="./../assets/image/map2/5.png" alt="">
+                                <img class="task-pic" src="/assets/image/map2/5.png" alt="">
                                 <div class="task-txt">
                                     <div class="task-name">香菇</div>
                                     <div class="task-desc">樸實外表下藏著鮮美香氣與營養<br>實力</div>
@@ -194,7 +194,7 @@ gtag('config', 'G-GNB1EGND17');
                                 <div class="task-num"></div>
                             </div>
                             <div class="task-item">
-                                <img class="task-pic" src="./../assets/image/map2/6.png" alt="">
+                                <img class="task-pic" src="/assets/image/map2/6.png" alt="">
                                 <div class="task-txt">
                                     <div class="task-name">柿葉</div>
                                     <div class="task-desc">柿半功倍，日常保健不費力</div>
@@ -218,22 +218,22 @@ gtag('config', 'G-GNB1EGND17');
                             <span>限時30秒</span>
                         </div>
                         <div class="instruction-click">
-                            <img src="./../assets/image/map2/instruction/item.png" alt="">
+                            <img src="/assets/image/map2/instruction/item.png" alt="">
                             <div class="instruction-finger -c">
                                 <div></div>
                             </div>
                         </div>
                         <div class="instruction-txt -c">
-                            <img src="./../assets/image/map2/instruction/txt-click.png" alt="">
+                            <img src="/assets/image/map2/instruction/txt-click.png" alt="">
                         </div>
                         <div class="instruction-leaf">
-                            <img src="./../assets/image/map2/instruction/leaf.png" alt="">
+                            <img src="/assets/image/map2/instruction/leaf.png" alt="">
                             <div class="instruction-finger -l">
                                 <div></div>
                             </div>
                         </div>
                         <div class="instruction-txt -l">
-                            <img src="./../assets/image/map2/instruction/txt-leaf.png" alt="">
+                            <img src="/assets/image/map2/instruction/txt-leaf.png" alt="">
                         </div>
                         <div class="instruction-list">
                             <span>食穀收集清單</span>
@@ -243,7 +243,7 @@ gtag('config', 'G-GNB1EGND17');
                     <div class="game-time"><span>30</span></div>
                 </div>
                 <div class="game-task">
-                    <img src="./../assets/image/map2/instruction/task.png" alt="">
+                    <img src="/assets/image/map2/instruction/task.png" alt="">
                 </div>
             </div>
         </div>
@@ -255,42 +255,42 @@ gtag('config', 'G-GNB1EGND17');
                 </div>
                 <div class="game-task">
                     <div data-item="malt">
-                        <img src="./../assets/image/map2/1.png" alt="">
+                        <img src="/assets/image/map2/1.png" alt="">
                         <div>
                             麥芽
                             <p><span data-num>0</span>/<span data-target></span></p>
                         </div>
                     </div>
                     <div data-item="blackRice">
-                        <img src="./../assets/image/map2/2.png" alt="">
+                        <img src="/assets/image/map2/2.png" alt="">
                         <div>
                             黑米
                             <p><span data-num>0</span>/<span data-target></span></p>
                         </div>
                     </div>
                     <div data-item="barley">
-                        <img src="./../assets/image/map2/3.png" alt="">
+                        <img src="/assets/image/map2/3.png" alt="">
                         <div>
                             大麥
                             <p><span data-num>0</span>/<span data-target></span></p>
                         </div>
                     </div>
                     <div data-item="maize">
-                        <img src="./../assets/image/map2/4.png" alt="">
+                        <img src="/assets/image/map2/4.png" alt="">
                         <div>
                             玉蜀黍
                             <p><span data-num>0</span>/<span data-target></span></p>
                         </div>
                     </div>
                     <div data-item="shiitakeMushroom">
-                        <img src="./../assets/image/map2/5.png" alt="">
+                        <img src="/assets/image/map2/5.png" alt="">
                         <div>
                             香菇
                             <p><span data-num>0</span>/<span data-target></span></p>
                         </div>
                     </div>
                     <div data-item="persimmonLeaf">
-                        <img src="./../assets/image/map2/6.png" alt="">
+                        <img src="/assets/image/map2/6.png" alt="">
                         <div>
                             柿葉
                             <p><span data-num>0</span>/<span data-target></span></p>
@@ -364,7 +364,7 @@ gtag('config', 'G-GNB1EGND17');
         </div>
     </div>
 </div>
-<audio id="audio" src="./../assets/audio/morning-mist.mp4" loop></audio>
+<audio id="audio" src="/assets/audio/morning-mist.mp4" loop></audio>
 <!-- 挑戰成功popup -->
 <div class="popup" data-popup="success">
     <div class="popup-wrap">
@@ -430,7 +430,7 @@ gtag('config', 'G-GNB1EGND17');
             <div class="lottery">
                 <div class="lottery-name">獲得十六茶乙瓶</div>
                 <div class="lottery-pic">
-                    <img src="./../assets/image/product/16cha.webp" alt="">
+                    <img src="/assets/image/product/16cha.webp" alt="">
                 </div>
                 <div class="lottery-code">
                     兌換序號
@@ -464,16 +464,16 @@ gtag('config', 'G-GNB1EGND17');
     </div>
 </div>
 
-    <script src="./../assets/lib/jquery-3.7.1.min.js"></script>
-    <script src="./../assets/lib/imagesloaded.pkgd.min.js"></script>
-    <script src="./../assets/lib/ua-parser.min.js"></script>
-    <script src="./../assets/lib/clipboard.min.js"></script>
-    <script src="./../assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
+    <script src="/assets/lib/jquery-3.7.1.min.js"></script>
+    <script src="/assets/lib/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/lib/ua-parser.min.js"></script>
+    <script src="/assets/lib/clipboard.min.js"></script>
+    <script src="/assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
     
-<script src="./../assets/lib/gsap.min.js"></script>
-<script src="./../assets/lib/pixi.min.js"></script>
+<script src="/assets/lib/gsap.min.js"></script>
+<script src="/assets/lib/pixi.min.js"></script>
 
-    <script src="./../assets/js/main.min.js"></script>
+    <script src="/assets/js/main.min.js"></script>
     
 
 <script>
@@ -496,7 +496,7 @@ var score = {
 var mapNum = 2;
 </script>
 
-<script src="./../assets/js/game.min.js"></script>
+<script src="/assets/js/game.min.js"></script>
 
 </body>
 

@@ -44,4 +44,11 @@ class LoginController extends Controller
 
         return redirect('/list');
     }
+
+    public function logout()
+    {
+        session()->forget('user');
+
+        return redirect('/');
+    }
 }

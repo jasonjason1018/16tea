@@ -299,7 +299,7 @@
                                 <!-- 挑戰失敗無法抽“立即抽”與“大獎” -->
                                 <button class="btn" data-share>分享至FB</button>
                                 <button class="btn" data-share>分享至Line</button>
-                                <a href="./game.html" class="btn">重玩一次</a>
+                                <a href="/morning/game" class="btn">重玩一次</a>
                             </div>
                             <div class="score-note" data-share>完成分享才能抽大獎喔！</div>
                         </div>
