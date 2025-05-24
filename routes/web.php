@@ -49,3 +49,5 @@ Route::group(['prefix' => 'login'], function () {
 });
 
 Route::get('/logout', 'LoginController@logout');
+
+Route::get('/api/lottery', 'LotteryController@lottery');

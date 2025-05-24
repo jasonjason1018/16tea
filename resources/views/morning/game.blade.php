@@ -54,62 +54,7 @@
     </div>
 </div>
 <div class="container">
-    <header class="header">
-        <div class="header-wrap">
-            <div class="header-logo">
-
-                <a href="./../index.html">
-                    <img src="/assets/image/layout/logo.png" alt="">
-                </a>
-                <div class="header-subject">
-                    <img src="/assets/image/layout/subject-dk.png" alt="">
-                </div>
-
-            </div>
-
-            <button class="header-btn" data-burger>
-                <img src="/assets/image/layout/menu.svg" alt="">
-            </button>
-            <div class="header-nav">
-                <div class="nav">
-                    <div class="nav-user">
-                        <div class="nav-pic">
-                            <!-- 若無圖片請放預設圖：/assets/image/layout/user.svg -->
-                            <img src="/assets/image/layout/user.svg" alt="">
-                        </div>
-                        <div class="nav-name">訪客</div>
-                    </div>
-                    <div class="nav-content" data-scrollbar>
-                        <div class="nav-links">
-                            <a href="./../index.html">首頁</a>
-                            <a href="./../video.html">品牌影片</a>
-                            <a href="./../record.html">尋穀紀錄</a>
-                            <a href="./../gift.html">我的贈品</a>
-                            <a href="./../rule.html">活動辦法</a>
-                            <a href="./../winners.html">得獎名單</a>
-                            <a href="./../sales.html">十六茶通路</a>
-                        </div>
-                        <div class="nav-social">
-                            <a href="https://www.facebook.com/tw16asahi" target="_blank" rel="noopener noreferrer">
-                                <img src="/assets/image/icon/facebook.webp" alt="">
-                            </a>
-                            <a href="https://www.instagram.com/16cha_tw/" target="_blank" rel="noopener noreferrer">
-                                <img src="/assets/image/icon/instagram.webp" alt="">
-                            </a>
-                            <a href="https://asahisoftdrinks.com.tw/16cha/" target="_blank" rel="noopener noreferrer">
-                                <img src="/assets/image/icon/16cha.webp" alt="">
-                            </a>
-                        </div>
-                        <div class="nav-logout">
-                            <!-- <button class="btn -lg">登出</button> -->
-                            <a href="./../login.html" class="btn -lg">馬上登入</a>
-                        </div>
-                    </div>
-                    <button class="nav-close" data-burger></button>
-                </div>
-            </div>
-        </div>
-    </header>
+    @include('include.header')
 
     <main class="main -f01">
         <div class="step">
@@ -373,7 +318,8 @@
         </div>
         <div class="popup-action">
             <!-- 流程示意用，實際請移除[data-popup-btn="win"] -->
-            <button class="btn" data-popup-btn="win" data-popup-close>立即抽</button>
+            <button class="btn" id="lottery" data-popup-close>立即抽</button>
+{{--            <button class="btn" data-popup-btn="win" data-popup-close>立即抽</button>--}}
         </div>
     </div>
 </div>
@@ -420,7 +366,7 @@
                 </div>
                 <div class="lottery-code">
                     兌換序號
-                    <p>XOOXXOXOXOOXXOXOOXO</p>
+                    <p id="serial_number"></p>
                 </div>
                 <div class="lottery-note">請至「我的贈品」查詢獎品喔 !</div>
             </div>
@@ -481,6 +427,7 @@
 </script>
 
 <script src="/assets/js/game.min.js"></script>
+<script src="/js/lottery.js"></script>
 
 </body>
 
