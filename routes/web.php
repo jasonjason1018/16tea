@@ -42,4 +42,6 @@ Route::group(['prefix' => 'star'], function () {
 Route::group(['prefix' => 'login'], function () {
     Route::get('/line', 'LoginController@lineLogin');
     Route::get('/line/callBack', 'LoginController@lineLoginCallback');
+    Route::get('/fb', 'LoginController@fbLogin');
+    Route::get('/fb/callBack', 'LoginController@fbLoginCallback');
 });

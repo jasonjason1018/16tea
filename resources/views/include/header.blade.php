@@ -16,9 +16,17 @@
                 <div class="nav-user">
                     <div class="nav-pic">
                         <!-- 若無圖片請放預設圖：/assets/image/layout/user.svg -->
-                        <img src="./assets/image/layout/user.svg" alt="">
+                        @if (session()->has('user'))
+                            <img src="{{ session('user')['picture'] }}" alt="">
+                        @else
+                            <img src="./assets/image/layout/user.svg" alt="">
+                        @endif
                     </div>
-                    <div class="nav-name">訪客</div>
+                    @if (session()->has('user'))
+                        <div class="nav-name">{{ session('user')['name'] }}</div>
+                    @else
+                        <div class="nav-name">訪客</div>
+                    @endif
                 </div>
                 <div class="nav-content" data-scrollbar>
                     <div class="nav-links">
@@ -42,12 +50,20 @@
                         </a>
                     </div>
                     <div class="nav-logout">
-                        <!-- <button class="btn -lg">登出</button> -->
-                        <a href="/login" class="btn -lg">馬上登入</a>
+                        @if (session()->has('user'))
+                            <button class="btn -lg" id="logout-button">登出</button>
+                        @else
+                            <a href="/login" class="btn -lg">馬上登入</a>
+                        @endif
                     </div>
                 </div>
                 <button class="nav-close" data-burger></button>
             </div>
         </div>
     </div>
+    <script>
+        $('#logout-button').click(function () {
+
+        });
+    </script>
 </header>

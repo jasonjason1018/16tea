@@ -113,6 +113,10 @@
     $('.-line').click(function () {
         window.location.href = '/login/line';
     });
+
+    $('.-fb').click(function () {
+        window.location.href = '/login/fb';
+    });
 </script>
 
 

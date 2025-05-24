@@ -18,6 +18,30 @@ class LoginController extends Controller
 
         $user = (array)$user->user;
 
-        return redirect('/login');
+        session()->put('user', [
+            'name' => $user['name'],
+            'picture' => $user['picture'],
+            'resource' => 'line'
+        ]);
+
+        return redirect('/list');
+    }
+
+    public function fbLogin()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function fbLoginCallback(Request $request)
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        session()->put('user', [
+            'name' => $user->getName(),
+            'picture' => $user->getAvatar(),
+            'resource' => 'fb'
+        ]);
+
+        return redirect('/list');
     }
 }
