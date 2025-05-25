@@ -79,118 +79,121 @@
                         </div>
                     </div>
                     <div class="record-table">
-                        <div class="record-item">
-                            <!-- 若尚未收集到請修改圖片檔名，例如1.png -> 1-off.png -->
-                            <img src="./assets/image/record/1-off.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">紅棗</div>
-                            </div>
-                        </div>
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/2.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">大麥</div>
+                        @foreach($recordItem as $item)
+                            <div class="record-item">
+                                <!-- 若尚未收集到請修改圖片檔名，例如1.png -> 1-off.png -->
+                                <img src="{{ asset($item->image_path) }}" alt="">
+                                <div class="record-txt">
+                                    <div class="record-name">{{ $item->name }}</div>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/3.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">柿葉</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/2.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">大麥</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/4.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">玄米</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/3.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">柿葉</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/5.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">麥芽</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/4.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">玄米</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/6.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">決明子</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/5.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">麥芽</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/7.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">薏仁</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/6.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">決明子</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/8.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">粟米</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/7.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">薏仁</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/9.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">香菇</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/8.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">粟米</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/10.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">黑豆</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/9.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">香菇</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/11.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">枇杷葉</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/10.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">黑豆</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/12.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">紅豆</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/11.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">枇杷葉</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/13.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">黍米</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/12.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">紅豆</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/14.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">桑葉</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/13.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">黍米</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/15.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">黑米</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/14.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">桑葉</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="record-item">
-                            <img src="./assets/image/record/16.png" alt="">
-                            <div class="record-txt">
-                                <div class="record-name">玉蜀黍</div>
-                            </div>
-                        </div>
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/15.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">黑米</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+{{--                        <div class="record-item">--}}
+{{--                            <img src="./assets/image/record/16.png" alt="">--}}
+{{--                            <div class="record-txt">--}}
+{{--                                <div class="record-name">玉蜀黍</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                     </div>
                 </div>

@@ -22,7 +22,7 @@ Route::view('/winners', 'winners');
 
 Route::group(['middleware' => 'loginAuth'], function () {
     Route::get('/gift', 'MemberController@gift');
-    Route::view('/record', 'record');
+    Route::get('/record', 'MemberController@record');
 
     Route::group(['prefix' => 'morning'], function () {
         Route::view('/game', 'morning.game');
@@ -55,6 +55,7 @@ Route::get('/logout', 'LoginController@logout');
 Route::group(['prefix' => 'api'], function () {
     Route::get('/lottery', 'LotteryController@lottery');
     Route::post('/form', 'FormController@insertForm');
+    Route::post('/score', 'MemberController@score');
 });
 
 Route::get('captcha', function () {

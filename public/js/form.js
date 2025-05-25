@@ -51,9 +51,6 @@ $('#form-btn').click(function () {
             'captcha': captch,
             'uid': uid
         },
-        headers: {
-            'X-CSRF-TOKEN': csrfToken
-        },
         success: function(response) {
             location.href = `/${topic}/complete`;
         }

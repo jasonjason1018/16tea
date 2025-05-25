@@ -25,11 +25,28 @@ $('#lottery').click(function () {
 const shareUrl = window.location.origin;
 
 function fbShare() {
+    addRecord();
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
     window.location.href = window.location.origin + '/' + topic + '/form';
 }
 
 function lineShare() {
+    addRecord();
     window.open(`https://social-plugins.line.me/lineit/share?openExternalBrowser=1&url=${encodeURIComponent(shareUrl)}`, '_blank');
     window.location.href = window.location.origin + '/' + topic + '/form';
+}
+
+function playAgain() {
+    addRecord();
+    location.href = `/${topic}/game`;
+}
+
+function addRecord() {
+    $.ajax({
+        url: '/api/score',
+        method: 'POST',
+        data: {
+            'score': score
+        }
+    });
 }
