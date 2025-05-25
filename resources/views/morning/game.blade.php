@@ -2,6 +2,10 @@
 <html class="no-js" lang="zh-Hant-TW">
 
 <head>
+    <meta property="og:title" content="這是一篇超棒的文章" />
+    <meta property="og:description" content="Laravel + Facebook 分享技巧，一看就會！" />
+    <meta property="og:image" content="https://yourwebsite.com/images/share.jpg" />
+    <meta property="og:url" content="https://63e1-2001-b400-e287-7a40-54fa-49af-379a-5f8d.ngrok-free.app/morning/game" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
@@ -242,7 +246,7 @@
                             <div class="score-desc"></div>
                             <div class="score-action">
                                 <!-- 挑戰失敗無法抽“立即抽”與“大獎” -->
-                                <button class="btn" data-share>分享至FB</button>
+                                <button onclick="share()" class="btn" data-share>分享至FB</button>
                                 <button class="btn" data-share>分享至Line</button>
                                 <a href="/morning/game" class="btn">重玩一次</a>
                             </div>

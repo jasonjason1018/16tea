@@ -21,3 +21,8 @@ $('#lottery').click(function () {
     console.log(score);
     handleLottery();
 });
+
+function share() {
+    const shareUrl = window.location.origin;
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
+}
