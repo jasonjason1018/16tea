@@ -432,7 +432,9 @@
 
 <script src="/assets/js/game.min.js"></script>
 <script src="/js/lottery.js"></script>
-
+<script>
+    var topic = 'morning';
+</script>
 </body>
 
 </html>

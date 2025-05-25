@@ -1,5 +1,6 @@
 <?php
 
+use Mews\Captcha\Facades\Captcha;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,15 +14,16 @@
 
 Route::view('/', 'index');
 Route::get('/list', 'GameController@list');
-Route::view('/gift', 'gift');
 Route::view('/login', 'login');
-Route::view('/record', 'record');
 Route::view('/rule', 'rule');
 Route::view('/sales', 'sales');
 Route::view('/video', 'video');
 Route::view('/winners', 'winners');
 
 Route::group(['middleware' => 'loginAuth'], function () {
+    Route::get('/gift', 'MemberController@gift');
+    Route::view('/record', 'record');
+
     Route::group(['prefix' => 'morning'], function () {
         Route::view('/game', 'morning.game');
         Route::view('/form', 'morning.form');
@@ -50,4 +52,11 @@ Route::group(['prefix' => 'login'], function () {
 
 Route::get('/logout', 'LoginController@logout');
 
-Route::get('/api/lottery', 'LotteryController@lottery');
+Route::group(['prefix' => 'api'], function () {
+    Route::get('/lottery', 'LotteryController@lottery');
+    Route::post('/form', 'FormController@insertForm');
+});
+
+Route::get('captcha', function () {
+    return Captcha::create('default');
+});

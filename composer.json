@@ -10,6 +10,7 @@
         "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.4",
         "laravel/tinker": "~1.0",
+        "mews/captcha": "^3.3",
         "socialiteproviders/line": "^2.1"
     },
     "require-dev": {

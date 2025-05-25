@@ -15,17 +15,17 @@
 
     <link rel="manifest" href="./site.json" crossorigin="use-credentials">
     <link rel="shortcut icon" href="./favicon.ico"/>
-    <link rel="apple-touch-icon" href="./assets/image/touch/logo.png">
+    <link rel="apple-touch-icon" href="/assets/image/touch/logo.png">
 
 
-    <link rel="stylesheet" href="./assets/css/normalize.min.css">
-    <link rel="stylesheet" href="./assets/lib/overlayScrollbars/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="./assets/css/main.min.css">
+    <link rel="stylesheet" href="/assets/css/normalize.min.css">
+    <link rel="stylesheet" href="/assets/lib/overlayScrollbars/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="/assets/css/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./assets/css/gift.min.css">
+    <link rel="stylesheet" href="/assets/css/gift.min.css">
 
     <meta name="theme-color" content="#ffffff">
 
@@ -60,54 +60,36 @@
         <div class="main-wrap">
             <div class="main-tit">我的贈品</div>
             <div class="main-content" data-scrollbar>
-                <div class="gift">
-                    <div class="gift-item">
-                        <div class="gift-pic">
-                            <img src="./assets/image/product/16cha.webp" alt="">
-                        </div>
-                        <div class="gift-info">
-                            <div class="gift-tit">獎品</div>
-                            <div class="gift-val">十六茶經典無糖 PET530ml</div>
-                        </div>
-                        <div class="gift-info">
-                            <div class="gift-tit">得獎日期</div>
-                            <div class="gift-val">2025/6/6</div>
-                        </div>
-                        <div class="gift-info">
-                            <div class="gift-tit">全家兌換PIN碼</div>
-                            <div class="gift-val -frame">DWW84HV957UDF481HJV</div>
-                        </div>
-                        <div class="gift-info">
-                            <div class="gift-tit">兌換截止日期</div>
-                            <div class="gift-val -rd">2026/01/31</div>
+                @empty($memberPrize)
+                    <div class="nodata">
+                        尚未獲得贈品
+                    </div>
+                @else
+                    <div class="gift">
+                        <div class="gift-item">
+                            <div class="gift-pic">
+                                <img src="/assets/image/product/16cha.webp" alt="">
+                            </div>
+                            <div class="gift-info">
+                                <div class="gift-tit">獎品</div>
+                                <div class="gift-val">十六茶經典無糖 PET530ml</div>
+                            </div>
+                            <div class="gift-info">
+                                <div class="gift-tit">得獎日期</div>
+                                <div class="gift-val">{{ $memberPrize->created_at->format('Y-m-d') }}</div>
+                            </div>
+                            <div class="gift-info">
+                                <div class="gift-tit">全家兌換PIN碼</div>
+                                <div class="gift-val -frame">{{ $memberPrize->serial_number }}</div>
+                            </div>
+                            <div class="gift-info">
+                                <div class="gift-tit">兌換截止日期</div>
+                                <div class="gift-val -rd">2026/01/31</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="gift-item">
-                        <div class="gift-pic">
-                            <img src="./assets/image/product/16cha.webp" alt="">
-                        </div>
-                        <div class="gift-info">
-                            <div class="gift-tit">獎品</div>
-                            <div class="gift-val">十六茶經典無糖 PET530ml</div>
-                        </div>
-                        <div class="gift-info">
-                            <div class="gift-tit">得獎日期</div>
-                            <div class="gift-val">2025/6/6</div>
-                        </div>
-                        <div class="gift-info">
-                            <div class="gift-tit">全家兌換PIN碼</div>
-                            <div class="gift-val -frame">AQW84HV957UDF481HJV</div>
-                        </div>
-                        <div class="gift-info">
-                            <div class="gift-tit">兌換截止日期</div>
-                            <div class="gift-val -rd">2026/01/31</div>
-                        </div>
-                    </div>
-                </div>
+                @endempty
                 <!-- 無資料 -->
-                <!-- <div class="nodata">
-                    尚未獲得贈品
-                </div> -->
             </div>
         </div>
     </main>
@@ -138,13 +120,13 @@
     </div>
 </div>
 
-<script src="./assets/lib/jquery-3.7.1.min.js"></script>
-<script src="./assets/lib/imagesloaded.pkgd.min.js"></script>
-<script src="./assets/lib/ua-parser.min.js"></script>
-<script src="./assets/lib/clipboard.min.js"></script>
-<script src="./assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
+<script src="/assets/lib/jquery-3.7.1.min.js"></script>
+<script src="/assets/lib/imagesloaded.pkgd.min.js"></script>
+<script src="/assets/lib/ua-parser.min.js"></script>
+<script src="/assets/lib/clipboard.min.js"></script>
+<script src="/assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
 
-<script src="./assets/js/main.min.js"></script>
+<script src="/assets/js/main.min.js"></script>
 
 </body>
 

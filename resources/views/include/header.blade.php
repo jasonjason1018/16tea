@@ -3,13 +3,13 @@
         <div class="header-logo">
 
             <a href="/">
-                <img src="./assets/image/layout/logo.png" alt="">
+                <img src="/assets/image/layout/logo.png" alt="">
             </a>
 
         </div>
 
         <button class="header-btn" data-burger>
-            <img src="./assets/image/layout/menu.svg" alt="">
+            <img src="/assets/image/layout/menu.svg" alt="">
         </button>
         <div class="header-nav">
             <div class="nav">
@@ -19,7 +19,7 @@
                         @if (session()->has('user'))
                             <img src="{{ session('user')['picture'] }}" alt="">
                         @else
-                            <img src="./assets/image/layout/user.svg" alt="">
+                            <img src="/assets/image/layout/user.svg" alt="">
                         @endif
                     </div>
                     @if (session()->has('user'))
@@ -40,13 +40,13 @@
                     </div>
                     <div class="nav-social">
                         <a href="https://www.facebook.com/tw16asahi" target="_blank" rel="noopener noreferrer">
-                            <img src="./assets/image/icon/facebook.webp" alt="">
+                            <img src="/assets/image/icon/facebook.webp" alt="">
                         </a>
                         <a href="https://www.instagram.com/16cha_tw/" target="_blank" rel="noopener noreferrer">
-                            <img src="./assets/image/icon/instagram.webp" alt="">
+                            <img src="/assets/image/icon/instagram.webp" alt="">
                         </a>
                         <a href="https://asahisoftdrinks.com.tw/16cha/" target="_blank" rel="noopener noreferrer">
-                            <img src="./assets/image/icon/16cha.webp" alt="">
+                            <img src="/assets/image/icon/16cha.webp" alt="">
                         </a>
                     </div>
                     <div class="nav-logout">
