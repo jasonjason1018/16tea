@@ -13,8 +13,18 @@ class LoginAuth
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $isForm = false)
     {
+        if ((boolean)$isForm) {
+            $isCompleteGame = session('complete_game');
+
+            if (!$isCompleteGame) {
+                return redirect('/list');
+            }
+
+            session()->forget('complete_game');
+        }
+
         $user = session('user');
 
         if (!$user) {

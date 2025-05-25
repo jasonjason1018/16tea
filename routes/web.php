@@ -26,22 +26,22 @@ Route::group(['middleware' => 'loginAuth'], function () {
 
     Route::group(['prefix' => 'morning'], function () {
         Route::view('/game', 'morning.game');
-        Route::view('/form', 'morning.form');
         Route::view('/complete', 'morning.complete');
     });
 
     Route::group(['prefix' => 'mist'], function () {
         Route::view('/game', 'mist.game');
-        Route::view('/form', 'mist.form');
         Route::view('/complete', 'mist.complete');
     });
 
     Route::group(['prefix' => 'star'], function () {
         Route::view('/game', 'star.game');
-        Route::view('/form', 'star.form');
         Route::view('/complete', 'star.complete');
     });
 });
+Route::view('/morning/form', 'morning.form')->middleware('loginAuth:true');
+Route::view('/mist/form', 'mist.form')->middleware('loginAuth:true');
+Route::view('/star/form', 'star.form')->middleware('loginAuth:true');
 
 Route::group(['prefix' => 'login'], function () {
     Route::get('/line', 'LoginController@lineLogin');
