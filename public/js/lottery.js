@@ -22,7 +22,12 @@ $('#lottery').click(function () {
     handleLottery();
 });
 
-function share() {
+function fbShare() {
     const shareUrl = window.location.origin;
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
+}
+
+function lineShare() {
+    const shareUrl = window.location.origin;
+    window.open(`https://social-plugins.line.me/lineit/share?openExternalBrowser=1&url=${encodeURIComponent(shareUrl)}`, '_blank');
 }
