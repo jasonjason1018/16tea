@@ -62,9 +62,4 @@
             </div>
         </div>
     </div>
-    <script>
-        $('#logout-button').click(function () {
-
-        });
-    </script>
 </header>

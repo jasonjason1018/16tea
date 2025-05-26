@@ -61,3 +61,10 @@ Route::group(['prefix' => 'api'], function () {
 Route::get('captcha', function () {
     return Captcha::create('default');
 });
+
+Route::group(['prefix' => '16chaAdmin'], function () {
+    Route::view('/', '16chaAdmin.login');
+    Route::view('/member', '16chaAdmin.member');
+    Route::view('/form', '16chaAdmin.form');
+    Route::view('/winner', '16chaAdmin.winner');
+});
