@@ -1,0 +1,42 @@
+{% extends './_layouts/_layout.tmpl' %}
+
+{% block logo %}
+<a href="{{ '/index.html' | relativePath }}">
+    <img src="{{ '/assets/image/layout/logo.png' | relativePath }}" alt="">
+</a>
+{% endblock %}
+
+{% block content %}
+<main class="main">
+    <div class="login">
+        <div class="login-tit">
+            <div class="subject">
+                <img src="./assets/image/kv/tit.png" alt="">
+            </div>
+        </div>
+        <div class="login-wrap">
+            <div class="login-txt">
+                開始探索前<br>
+                請先登入你的帳號
+            </div>
+            <div class="login-action">
+                <button class="btn -fb">Facebook 登入</button>
+                <button class="btn -line">LINE 登入</button>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block popups %}
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="./assets/css/login.min.css">
+{% endblock %}
+
+{% block pluginScripts %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

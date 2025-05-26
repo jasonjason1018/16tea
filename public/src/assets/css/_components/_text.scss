@@ -1,0 +1,37 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-size: 1em;
+}
+
+p {
+    margin: 0;
+}
+
+.subject {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: pc(-12);
+        left: pc(240);
+        width: pc(787);
+        height: pc(345);
+        background: url(../image/kv/light.png) no-repeat center/contain;
+        mix-blend-mode: screen;
+    }
+
+    @include breakpoint-down('tablet') {
+        &::after {
+            bottom: vw(-12);
+            left: vw(240);
+            width: vw(787);
+            height: vw(345);
+        }
+    }
+}

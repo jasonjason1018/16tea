@@ -1,0 +1,32 @@
+{% extends './_layouts/_layout.tmpl' %}
+
+{% block logo %}
+<a href="{{ '/index.html' | relativePath }}">
+    <img src="{{ '/assets/image/layout/logo.png' | relativePath }}" alt="">
+</a>
+{% endblock %}
+
+{% block content %}
+<main class="main">
+    <div class="main-wrap">
+        <div class="video">
+            <div class="video-tit">品牌影片</div>
+            <div class="video-yt">
+                <img src="./assets/image/video/frame.png" alt="">
+                <div id="youtubeEmbed" data-video-id="qXpmA6Owels"></div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="./assets/css/video.min.css">
+{% endblock %}
+
+{% block pluginScripts %}
+{% endblock %}
+
+{% block scripts %}
+<script src="./assets/js/youtube-autoplay.js"></script>
+{% endblock %}

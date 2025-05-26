@@ -1,0 +1,54 @@
+{% extends './_layouts/_layout.tmpl' %}
+
+{% block logo %}
+<a href="{{ '/index.html' | relativePath }}">
+    <img src="{{ '/assets/image/layout/logo.png' | relativePath }}" alt="">
+</a>
+{% endblock %}
+
+{% block content %}
+<main class="main">
+    <div class="index">
+        <div class="index-intro">
+            <div>
+                <p>歡迎來到療癒之森</p>
+                <p>
+                    這裡蘊藏著十六種天然食穀
+                    <br>
+                    <br>
+                </p>
+                <p>完成指定食穀收集</p>
+                <p>即可抽一瓶由十六種食穀製成的</p>
+                <p>零咖啡因十六茶</p>
+                <p>
+                    享受自然就療癒
+                    <br>
+                    <br>
+                </p>
+                <p>現在就一起進入療癒之森探索吧！</p>
+            </div>
+            <a href="./list.html" class="index-skip">SKIP</a>
+        </div>
+        <div class="index-tit">
+            <div class="subject">
+                <img src="./assets/image/kv/tit.png" alt="">
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block popups %}
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="./assets/css/index.min.css">
+{% endblock %}
+
+{% block pluginScripts %}
+<script src="./assets/lib/gsap.min.js"></script>
+{% endblock %}
+
+{% block scripts %}
+<script src="./assets/js/index.min.js"></script>
+{% endblock %}

@@ -14,7 +14,7 @@
 
 
     <link rel="manifest" href="./../site.json" crossorigin="use-credentials">
-    <link rel="shortcut icon" href="./../favicon.ico"/>
+    <link rel="shortcut icon" href="/src/favicon.ico"/>
     <link rel="apple-touch-icon" href="./../assets/image/touch/logo.png">
 
 

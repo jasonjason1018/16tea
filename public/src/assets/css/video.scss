@@ -1,0 +1,109 @@
+@import "./_variables";
+@import "./_mixins";
+
+.video {
+    position: relative;
+    padding-bottom: pc(280);
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: pc(-54);
+        width: pc(1142);
+        height: pc(250);
+        background: url(../image/video/deco.png) no-repeat center/contain;
+        pointer-events: none;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: pc(730);
+        left: pc(142);
+        width: pc(787);
+        height: pc(345);
+        background: url(../image/video/light.png) no-repeat center/contain;
+        pointer-events: none;
+        mix-blend-mode: screen;
+    }
+
+    &-tit {
+        position: relative;
+        margin-bottom: pc(70);
+        padding-left: em(14, 108);
+        font-size: pc(108);
+        font-weight: 500;
+        letter-spacing: em(14, 108);
+        text-align: center;
+        color: $main-color;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: pc(10);
+            left: calc(50% - pc(300));
+            width: pc(716);
+            height: pc(90);
+            background: url(../image/video/tit.png) no-repeat center/contain;
+        }
+    }
+
+    &-yt {
+        position: relative;
+        width: pc(1037);
+        margin: 0 auto;
+
+        img {
+            mix-blend-mode: hard-light;
+        }
+
+        iframe {
+            position: absolute;
+            top: pc(24);
+            left: pc(30);
+            width: calc(100% - pc(60));
+            height: calc(100% - pc(48));
+        }
+    }
+
+    @include breakpoint-down('tablet') {
+        padding-bottom: vw(280);
+
+        &::before {
+            left: vw(-54);
+            width: vw(1142);
+            height: vw(250);
+        }
+
+        &::after {
+            top: vw(730);
+            left: vw(142);
+            width: vw(787);
+            height: vw(345);
+        }
+
+        &-tit {
+            margin-bottom: vw(70);
+            font-size: vw(108);
+
+            &::after {
+                top: vw(10);
+                left: calc(50% - vw(300));
+                width: vw(716);
+                height: vw(90);
+            }
+        }
+
+        &-yt {
+            width: vw(1037);
+
+            iframe {
+                top: vw(24);
+                left: vw(30);
+                width: calc(100% - vw(60));
+                height: calc(100% - vw(48));
+            }
+        }
+    }
+}

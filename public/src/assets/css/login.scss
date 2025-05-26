@@ -1,0 +1,54 @@
+@import "./_variables";
+@import "./_mixins";
+
+.login {
+    &-tit {
+        margin-bottom: pc(130);
+    }
+
+    &-wrap {
+        box-sizing: border-box;
+        width: pc(888);
+        margin: 0 auto;
+        padding: pc(60) 0 pc(120);
+        border-radius: pc(42);
+        background-color: rgba(255, 255, 255, 0.96);
+    }
+
+    &-txt {
+        font-size: pc(63);
+        line-height: 1.6;
+        letter-spacing: em(7, 63);
+        text-align: center;
+        color: #40a927;
+    }
+
+    &-action {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: pc(60);
+        margin-top: pc(56);
+    }
+
+    @include breakpoint-down('tablet') {
+        &-tit {
+            margin-bottom: vw(130);
+        }
+
+        &-wrap {
+            width: vw(888);
+            padding: vw(60) 0 vw(120);
+            border-radius: vw(42);
+        }
+
+        &-txt {
+            font-size: vw(63);
+        }
+
+        &-action {
+            gap: vw(60);
+            margin-top: vw(56);
+        }
+    }
+}

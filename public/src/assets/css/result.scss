@@ -1,0 +1,10 @@
+@import "./_variables";
+@import "./_mixins";
+
+.result {
+    &.-fail & {}
+
+    @include breakpoint-down('tablet') {
+        &.-fail & {}
+    }
+}

@@ -1,0 +1,49 @@
+@import "./_variables";
+@import "./_mixins";
+
+.rule {
+    font-size: pc(38);
+    font-weight: 300;
+    line-height: 1.7;
+
+    &-item {
+        &+& {
+            margin-top: 1.3em;
+            padding-top: 1.3em;
+            border-top: pc(4) dashed $action-color;
+        }
+    }
+
+    &-tit {
+        margin-bottom: 0.2em;
+        font-size: pc(47);
+        font-weight: 500;
+        letter-spacing: em(0.46, 46);
+        color: $action-color;
+    }
+
+    &-val {
+        word-break: break-all;
+        text-align: justify;
+
+        ul,
+        ol {
+            margin: 0;
+            padding-left: 1.3em;
+        }
+    }
+
+    @include breakpoint-down('tablet') {
+        font-size: vw(38);
+
+        &-item {
+            &+& {
+                border-width: 2px;
+            }
+        }
+
+        &-tit {
+            font-size: vw(47);
+        }
+    }
+}

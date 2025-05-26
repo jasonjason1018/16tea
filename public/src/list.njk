@@ -1,0 +1,77 @@
+{% extends './_layouts/_layout.tmpl' %}
+
+{% block logo %}
+<a href="{{ '/index.html' | relativePath }}">
+    <img src="{{ '/assets/image/layout/logo.png' | relativePath }}" alt="">
+</a>
+<div class="header-subject">
+    <img src="{{ '/assets/image/layout/subject.png' | relativePath }}" alt="">
+</div>
+{% endblock %}
+
+{% block content %}
+<main class="main">
+    <div class="main-wrap">
+        <div class="list">
+            <div class="list-bg">
+                <img src="./assets/image/other/map.png" alt="">
+            </div>
+            <div class="list-content">
+                <div class="list-head">
+                    <span class="-gnT">3款</span>森林地圖分別有<span class="-gnT -xlT">３</span><span class="-gnT -lgT">種大獎</span><br>
+                    等你來探索、放鬆身心，收穫驚喜！
+                </div>
+                <!-- 若開放，請在.list-item 加上class .-on -->
+                <div class="list-item -f01 -on">
+                    <div class="list-name">
+                        <img src="./assets/image/list/tree-01.png" alt="">
+                        <p>晨光<br>森林</p>
+                    </div>
+                    <a href="./morning/game.html" class="list-pic">
+                        <img class="-off" src="./assets/image/list/01-off.png" alt="">
+                        <img class="-on" src="./assets/image/list/01-on.png" alt="">
+                        <div>
+                            <div class="list-date">6<span>/</span>5</div>
+                            <div class="list-txt">開啟森林</div>
+                        </div>
+                    </a>
+                </div>
+                <!-- 若開放，請在.list-item 加上class .-on -->
+                <div class="list-item -f02 -on">
+                    <a href="./mist/game.html" class="list-pic">
+                        <img class="-off" src="./assets/image/list/02-off.png" alt="">
+                        <img class="-on" src="./assets/image/list/02-on.png" alt="">
+                        <div>
+                            <div class="list-date">6<span>/</span>12</div>
+                            <div class="list-txt">開啟森林</div>
+                        </div>
+                    </a>
+                    <div class="list-name">
+                        <img src="./assets/image/list/tree-02.png" alt="">
+                        <p>霧影<br>森林</p>
+                    </div>
+                </div>
+                <!-- 若開放，請在.list-item 加上class .-on -->
+                <div class="list-item -f03 -on">
+                    <div class="list-name">
+                        <img src="./assets/image/list/tree-03.png" alt="">
+                        <p>星語<br>森林</p>
+                    </div>
+                    <a href="./star/game.html" class="list-pic">
+                        <img class="-off" src="./assets/image/list/03-off.png" alt="">
+                        <img class="-on" src="./assets/image/list/03-on.png" alt="">
+                        <div>
+                            <div class="list-date">6<span>/</span>19</div>
+                            <div class="list-txt">開啟森林</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="./assets/css/list.min.css">
+{% endblock %}

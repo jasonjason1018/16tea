@@ -1,0 +1,71 @@
+{% extends './_layouts/_layout.tmpl' %}
+
+{% block logo %}
+<a href="{{ '/index.html' | relativePath }}">
+    <img src="{{ '/assets/image/layout/logo.png' | relativePath }}" alt="">
+</a>
+<div class="header-subject">
+    <img src="{{ '/assets/image/layout/subject-dk.png' | relativePath }}" alt="">
+</div>
+{% endblock %}
+
+{% block content %}
+<main class="main -f01">
+    <div class="main-content -card">
+        <div class="card">
+            <div class="card-wrap">
+                <div class="form">
+                    <div class="form-head">感謝分享！請填寫抽獎資料</div>
+                    <div class="form-item">
+                        <div class="form-title">請輸入真實姓名</div>
+                        <div class="form-val">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-title">手機號碼</div>
+                        <div class="form-val">
+                            <input type="tel">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-title">電子信箱</div>
+                        <div class="form-val">
+                            <input type="email" class="-lg">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-title">驗證碼</div>
+                        <div class="form-val">
+                            <input type="text" class="-sm">
+                            <div class="form-verify">
+                                <div>
+                                    <img src="./../assets/image/form/verify.png" alt="">
+                                </div>
+                                <button></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-agree">
+                        <input type="checkbox" name="" id="agree">
+                        <label for="agree">
+                            <span>
+                                我已了解定<a href="./../rule.html#personal" target="_blank" rel="noopener noreferrer">同意個人資料搜集將關規定</a>，且已詳知活動辦法並同意遵守規範若填寫資料錯誤願意放棄得獎資格
+                            </span>
+                        </label>
+                    </div>
+                    <div class="form-action">
+                        <!-- 可送出請移除disabled屬性 -->
+                        <!-- <button class="btn" disabled><span>確認送出</span></button> -->
+                        <a href="./complete.html" class="btn"><span>確認送出</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="./../assets/css/form.min.css">
+{% endblock %}

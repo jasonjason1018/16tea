@@ -1,0 +1,53 @@
+// -------------------------------- scrollbar套件修改 start --------------------------------
+.os-theme-dark {
+
+    .os-scrollbar-horizontal {
+        display: none;
+    }
+
+    &>.os-scrollbar {
+        &>.os-scrollbar-track>.os-scrollbar-handle {
+            background: $action-color;
+            cursor: grab;
+
+            &.active {
+                background: $action-color;
+                cursor: grabbing;
+            }
+        }
+
+        &:hover>.os-scrollbar-track>.os-scrollbar-handle {
+            background: $action-color;
+        }
+    }
+
+    &>.os-scrollbar-vertical {
+        width: pc(12);
+        padding: 0;
+        background: #ebebeb;
+        border-radius: pc(4);
+        z-index: 0;
+
+        .os-scrollbar-track .os-scrollbar-handle {
+            border-radius: pc(4);
+        }
+
+        .os-scrollbar-handle:before {
+            left: 0;
+            right: 0;
+        }
+    }
+
+    @include breakpoint-down('tablet') {
+        &>.os-scrollbar-vertical {
+            width: vw(12);
+            border-radius: vw(4);
+
+            .os-scrollbar-track .os-scrollbar-handle {
+                border-radius: vw(4);
+            }
+        }
+    }
+}
+
+// -------------------------------- scrollbar套件修改 end --------------------------------

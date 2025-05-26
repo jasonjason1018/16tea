@@ -1,0 +1,75 @@
+{% extends './_layouts/_layout.tmpl' %}
+
+{% block logo %}
+<a href="{{ '/index.html' | relativePath }}">
+    <img src="{{ '/assets/image/layout/logo.png' | relativePath }}" alt="">
+</a>
+<div class="header-subject">
+    <img src="{{ '/assets/image/layout/subject.png' | relativePath }}" alt="">
+</div>
+{% endblock %}
+
+{% block content %}
+<main class="main -scroll">
+    <div class="main-wrap">
+        <div class="main-tit">十六茶購買通路</div>
+        <div class="main-content" data-scrollbar>
+            <div class="sales">
+                <div class="sales-group">
+                    <div class="sales-head">實體通路</div>
+                    <div class="sales-content">
+                        <div class="sales-item">
+                            <div class="sales-pic">
+                                <img src="./assets/image/product/16cha.webp" alt="">
+                            </div>
+                            <div class="sales-content">
+                                <div class="sales-name">十六茶經典無糖 PET530ml：</div>
+                                <div class="sales-location">7-11、全聯、全家、寶雅、美廉社、家樂福、CitySuper、唐吉訶德、大潤發、愛買</div>
+                            </div>
+                        </div>
+                        <div class="sales-item">
+                            <div class="sales-pic">
+                                <img src="./assets/image/product/16chaSm.webp" alt="">
+                            </div>
+                            <div class="sales-content">
+                                <div class="sales-name">十六茶經典無糖 鋁箔包330ml：</div>
+                                <div class="sales-location">全聯</div>
+                            </div>
+                        </div>
+                        <div class="sales-item -last">
+                            <div class="sales-pic">
+                                <img src="./assets/image/product/16chaLg.webp" alt="">
+                            </div>
+                            <div class="sales-content">
+                                <div class="sales-name">十六茶經典無糖 PET990ml：</div>
+                                <div class="sales-location">家樂福、大潤發、愛買、餐飲通路</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sales-group">
+                    <div class="sales-head">線上通路</div>
+                    <div class="sales-action">
+                        <a href="https://bit.ly/3PmsQKm" target="_blank" rel="noopener noreferrer">
+                            <img src="./assets/image/other/pchome.png" alt="">
+                        </a>
+                        <a href="https://bit.ly/3Oic921" target="_blank" rel="noopener noreferrer">
+                            <img src="./assets/image/other/momo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="./assets/css/sales.min.css">
+{% endblock %}
+
+{% block pluginScripts %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

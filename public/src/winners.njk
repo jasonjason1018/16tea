@@ -1,0 +1,70 @@
+{% extends './_layouts/_layout.tmpl' %}
+
+{% block logo %}
+<a href="{{ '/index.html' | relativePath }}">
+    <img src="{{ '/assets/image/layout/logo.png' | relativePath }}" alt="">
+</a>
+<div class="header-subject">
+    <img src="{{ '/assets/image/layout/subject.png' | relativePath }}" alt="">
+</div>
+{% endblock %}
+
+{% block content %}
+<main class="main -scroll">
+    <div class="main-wrap">
+        <div class="main-tit">得獎名單</div>
+        <div class="main-content" data-scrollbar>
+            <div class="winners">
+                <div class="winners-group -p01">
+                    <div class="winners-tit">晨光森林</div>
+                    <div class="winners-name">MUJI無印良品空氣循環風扇 乙名</div>
+                    <div class="winners-pic">
+                        <img src="./assets/image/winners/01.jpg" alt="">
+                    </div>
+                    <div class="winners-list">
+                        陳〇藝 0931XXX223
+                    </div>
+                </div>
+                <div class="winners-group -p02">
+                    <div class="winners-tit">霧影森林</div>
+                    <div class="winners-name">VIVISPA脈輪舒筋好眠SPA護理 乙名</div>
+                    <div class="winners-pic">
+                        <img src="./assets/image/winners/02.jpg" alt="">
+                    </div>
+                    <div class="winners-list">
+                        陳〇藝 0931XXX223
+                    </div>
+                </div>
+                <div class="winners-group -p03">
+                    <div class="winners-tit">星語森林</div>
+                    <div class="winners-name">【雲品假期】一泊二食尊榮湖景2人房 乙名</div>
+                    <div class="winners-pic">
+                        <img src="./assets/image/winners/03.jpg" alt="">
+                    </div>
+                    <div class="winners-list">
+                        陳〇藝 0931XXX223
+                    </div>
+                </div>
+            </div>
+            <!-- 無資料 -->
+            <!-- <div class="nodata">
+                尚未公佈<br>
+                敬請期待12/22開獎
+            </div> -->
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block popups %}
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="./assets/css/winners.min.css">
+{% endblock %}
+
+{% block pluginScripts %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

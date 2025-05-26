@@ -1,0 +1,107 @@
+.btn {
+    box-sizing: border-box;
+    display: inline-block;
+    width: pc(310);
+    height: pc(100);
+    padding: pc(12);
+    padding-left: calc(pc(12) + em(2, 52));
+    font-size: pc(52);
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: em(2, 52);
+    border-radius: pc(26);
+    box-shadow: 0 pc(3) pc(8) pc(2) rgba(192, 215, 191, 0.6);
+    background-color: $action-color;
+    cursor: pointer;
+
+    &[disabled] {
+        position: relative;
+        pointer-events: none;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: pc(26);
+            background-color: rgba(73, 73, 73, 0.5);
+        }
+    }
+
+    &.-md {
+        width: pc(390);
+        padding: pc(12);
+        font-size: pc(50);
+    }
+
+    &.-lg {
+        width: pc(506);
+        padding: pc(12);
+        font-size: pc(50);
+    }
+
+    &.-fb {
+        width: pc(624);
+        height: pc(157);
+        padding: pc(34) 0;
+        font-size: pc(59);
+        border-radius: pc(38);
+        background-color: #3c599b;
+    }
+
+    &.-line {
+        width: pc(624);
+        height: pc(157);
+        padding: pc(34) 0;
+        font-size: pc(59);
+        border-radius: pc(38);
+        background-color: #22ba4f;
+    }
+
+    @include breakpoint-down('tablet') {
+        width: vw(310);
+        height: vw(100);
+        padding: vw(12);
+        padding-left: calc(vw(12) + em(2, 52));
+        font-size: vw(52);
+        border-radius: vw(26);
+        box-shadow: 0 vw(3) vw(8) vw(2) rgba(192, 215, 191, 0.6);
+
+        &[disabled] {
+            &::after {
+                border-radius: vw(26);
+            }
+        }
+
+        &.-md {
+            width: vw(390);
+            padding: vw(12);
+            font-size: vw(50);
+        }
+
+        &.-lg {
+            width: vw(456);
+            padding: vw(12);
+            font-size: vw(50);
+        }
+
+        &.-fb {
+            width: vw(624);
+            height: vw(157);
+            padding: vw(34) 0;
+            font-size: vw(59);
+            border-radius: vw(38);
+        }
+
+        &.-line {
+            width: vw(624);
+            height: vw(157);
+            padding: vw(34) 0;
+            font-size: vw(59);
+            border-radius: vw(38);
+        }
+    }
+}

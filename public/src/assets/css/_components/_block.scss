@@ -1,0 +1,12 @@
+.nodata {
+    padding: pc(290) 0 pc(290) em(6, 50);
+    font-size: pc(50);
+    letter-spacing: em(6, 50);
+    color: rgba(3, 89, 9, 0.7);
+    text-align: center;
+
+    @include breakpoint-down('tablet') {
+        padding: vw(290) 0 vw(290) em(6, 50);
+        font-size: vw(50);
+    }
+}

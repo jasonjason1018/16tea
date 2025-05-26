@@ -1,0 +1,213 @@
+@import "./_variables";
+@import "./_mixins";
+
+.main {
+    min-height: pc(1820);
+
+    @include breakpoint-down('tablet') {
+        min-height: vw(1820);
+    }
+}
+
+.form {
+    padding: pc(90) pc(110);
+    text-align: center;
+
+    &-head {
+        margin-bottom: pc(90);
+        font-size: pc(52);
+        letter-spacing: em(6, 52);
+    }
+
+    &-item {
+        &+& {
+            margin-top: pc(30);
+        }
+    }
+
+    &-title {
+        margin-bottom: pc(6);
+        padding-left: em(4, 40);
+        font-size: pc(40);
+        letter-spacing: em(4, 40);
+    }
+
+    &-val {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        input {
+            flex: 0 0 auto;
+            position: relative;
+            box-sizing: border-box;
+            width: pc(625);
+            height: pc(116);
+            font-size: pc(50);
+            text-align: center;
+            color: $text-color;
+            outline: none;
+            border: none;
+            border-radius: 0;
+            background-color: #fff;
+
+            &::placeholder {
+                color: #a5acaf;
+            }
+
+            &.-sm {
+                width: pc(290);
+            }
+
+            &.-lg {
+                width: pc(836);
+            }
+        }
+    }
+
+    &-verify {
+        flex: 0 0 auto;
+        position: relative;
+        box-sizing: border-box;
+        width: pc(264);
+        height: pc(116);
+        padding: pc(15) pc(20);
+        background-color: #a5acaf;
+
+        &>div {
+            font-size: 0;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            left: calc(100% + pc(25));
+            transform: translateY(-50%);
+            width: pc(80);
+            height: pc(80);
+            padding: 0;
+            outline: none;
+            border: none;
+            background: url(../image/form/reset.png) no-repeat center/contain;
+            cursor: pointer;
+        }
+    }
+
+    &-agree {
+        margin: pc(50) auto 0;
+        font-size: pc(28);
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: em(3.8, 28);
+        text-align: left;
+
+        input {
+            display: none;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: pc(24);
+
+            &::before {
+                content: '';
+                flex: 0 0 auto;
+                box-sizing: border-box;
+                width: pc(62);
+                height: pc(62);
+                background-color: #fff;
+                cursor: pointer;
+            }
+
+            span {
+                flex: 1;
+
+                &>a {
+                    color: $action-color;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        input:checked+label {
+            &::before {
+                background: $action-color url(../image/form/check.svg) no-repeat top 70% center/90%;
+            }
+        }
+    }
+
+    &-action {
+        margin-top: pc(80);
+    }
+
+    @include breakpoint-down('tablet') {
+        padding: vw(90) vw(110);
+
+        &-head {
+            margin-bottom: vw(90);
+            font-size: vw(52);
+        }
+
+        &-item {
+            &+& {
+                margin-top: vw(30);
+            }
+        }
+
+        &-title {
+            margin-bottom: vw(6);
+            font-size: vw(40);
+        }
+
+        &-val {
+            input {
+                width: vw(625);
+                height: vw(116);
+                font-size: vw(50);
+
+                &.-sm {
+                    width: vw(290);
+                }
+
+                &.-lg {
+                    width: vw(836);
+                }
+            }
+        }
+
+        &-verify {
+            width: vw(264);
+            height: vw(116);
+            padding: vw(15) vw(20);
+
+            button {
+                left: calc(100% + vw(25));
+                width: vw(80);
+                height: vw(80);
+            }
+        }
+
+        &-agree {
+            margin: vw(50) auto 0;
+            font-size: vw(28);
+
+            label {
+                gap: vw(24);
+
+                &::before {
+                    width: vw(62);
+                    height: vw(62);
+                }
+            }
+        }
+
+        &-action {
+            margin-top: vw(80);
+        }
+    }
+}

@@ -14,7 +14,7 @@
 
 
     <link rel="manifest" href="./../site.json" crossorigin="use-credentials">
-    <link rel="shortcut icon" href="./../favicon.ico"/>
+    <link rel="shortcut icon" href="/src/favicon.ico"/>
     <link rel="apple-touch-icon" href="/assets/image/touch/logo.png">
 
 
@@ -54,62 +54,7 @@
     </div>
 </div>
 <div class="container">
-    <header class="header">
-        <div class="header-wrap">
-            <div class="header-logo">
-
-                <a href="./../index.html">
-                    <img src="/assets/image/layout/logo-wt.png" alt="">
-                </a>
-                <div class="header-subject">
-                    <img src="/assets/image/layout/subject-wt.png" alt="">
-                </div>
-
-            </div>
-
-            <button class="header-btn" data-burger>
-                <img src="/assets/image/layout/menu.svg" alt="">
-            </button>
-            <div class="header-nav">
-                <div class="nav">
-                    <div class="nav-user">
-                        <div class="nav-pic">
-                            <!-- 若無圖片請放預設圖：/assets/image/layout/user.svg -->
-                            <img src="/assets/image/layout/user.svg" alt="">
-                        </div>
-                        <div class="nav-name">訪客</div>
-                    </div>
-                    <div class="nav-content" data-scrollbar>
-                        <div class="nav-links">
-                            <a href="./../index.html">首頁</a>
-                            <a href="./../video.html">品牌影片</a>
-                            <a href="./../record.html">尋穀紀錄</a>
-                            <a href="./../gift.html">我的贈品</a>
-                            <a href="./../rule.html">活動辦法</a>
-                            <a href="./../winners.html">得獎名單</a>
-                            <a href="./../sales.html">十六茶通路</a>
-                        </div>
-                        <div class="nav-social">
-                            <a href="https://www.facebook.com/tw16asahi" target="_blank" rel="noopener noreferrer">
-                                <img src="/assets/image/icon/facebook.webp" alt="">
-                            </a>
-                            <a href="https://www.instagram.com/16cha_tw/" target="_blank" rel="noopener noreferrer">
-                                <img src="/assets/image/icon/instagram.webp" alt="">
-                            </a>
-                            <a href="https://asahisoftdrinks.com.tw/16cha/" target="_blank" rel="noopener noreferrer">
-                                <img src="/assets/image/icon/16cha.webp" alt="">
-                            </a>
-                        </div>
-                        <div class="nav-logout">
-                            <!-- <button class="btn -lg">登出</button> -->
-                            <a href="./../login.html" class="btn -lg">馬上登入</a>
-                        </div>
-                    </div>
-                    <button class="nav-close" data-burger></button>
-                </div>
-            </div>
-        </div>
-    </header>
+    @include('include.header')
 
     <main class="main -f03">
         <div class="step">

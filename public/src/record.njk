@@ -1,0 +1,57 @@
+{% extends './_layouts/_layout.tmpl' %}
+
+{% block logo %}
+<a href="{{ '/index.html' | relativePath }}">
+    <img src="{{ '/assets/image/layout/logo.png' | relativePath }}" alt="">
+</a>
+<div class="header-subject">
+    <img src="{{ '/assets/image/layout/subject.png' | relativePath }}" alt="">
+</div>
+{% endblock %}
+
+{% block content %}
+<main class="main">
+    <div class="main-wrap">
+        <div class="record">
+            <div class="record-bg">
+                <img src="./assets/image/other/map.png" alt="">
+            </div>
+            <div class="record-content">
+                <div class="record-head">快來看看你的尋穀成續如何 !</div>
+                <div class="record-legend">
+                    <div>
+                        <img src="./assets/image/record/sun.png" alt="">
+                        <p>／晨光森林</p>
+                    </div>
+                    <div>
+                        <img src="./assets/image/record/cloud.png" alt="">
+                        <p>／霧影森林</p>
+                    </div>
+                    <div>
+                        <img src="./assets/image/record/star.png" alt="">
+                        <p>／星語森林</p>
+                    </div>
+                </div>
+                <div class="record-table">
+                    {%- set name = ['紅棗', '大麥', '柿葉', '玄米', '麥芽', '決明子', '薏仁', '粟米', '香菇', '黑豆', '枇杷葉', '紅豆', '黍米', '桑葉', '黑米', '玉蜀黍'] %}
+                    {%- for item in name %}
+                    <div class="record-item">
+                        {%- if loop.first %}
+                        <!-- 若尚未收集到請修改圖片檔名，例如1.png -> 1-off.png -->
+                        {%- endif %}
+                        <img src="./assets/image/record/{{loop.index}}{{'-off' if loop.first}}.png" alt="">
+                        <div class="record-txt">
+                            <div class="record-name">{{item}}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="./assets/css/record.min.css">
+{% endblock %}

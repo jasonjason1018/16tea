@@ -1,0 +1,72 @@
+{% extends './_layouts/_layout.tmpl' %}
+
+{% block logo %}
+<a href="{{ '/index.html' | relativePath }}">
+    <img src="{{ '/assets/image/layout/logo.png' | relativePath }}" alt="">
+</a>
+<div class="header-subject">
+    <img src="{{ '/assets/image/layout/subject.png' | relativePath }}" alt="">
+</div>
+{% endblock %}
+
+{% block content %}
+<main class="main -scroll">
+    <div class="main-wrap">
+        <div class="main-tit">我的贈品</div>
+        <div class="main-content" data-scrollbar>
+            <div class="gift">
+                <div class="gift-item">
+                    <div class="gift-pic">
+                        <img src="./assets/image/product/16cha.webp" alt="">
+                    </div>
+                    <div class="gift-info">
+                        <div class="gift-tit">獎品</div>
+                        <div class="gift-val">十六茶經典無糖 PET530ml</div>
+                    </div>
+                    <div class="gift-info">
+                        <div class="gift-tit">得獎日期</div>
+                        <div class="gift-val">2025/6/6</div>
+                    </div>
+                    <div class="gift-info">
+                        <div class="gift-tit">全家兌換PIN碼</div>
+                        <div class="gift-val -frame">DWW84HV957UDF481HJV</div>
+                    </div>
+                    <div class="gift-info">
+                        <div class="gift-tit">兌換截止日期</div>
+                        <div class="gift-val -rd">2026/01/31</div>
+                    </div>
+                </div>
+                <div class="gift-item">
+                    <div class="gift-pic">
+                        <img src="./assets/image/product/16cha.webp" alt="">
+                    </div>
+                    <div class="gift-info">
+                        <div class="gift-tit">獎品</div>
+                        <div class="gift-val">十六茶經典無糖 PET530ml</div>
+                    </div>
+                    <div class="gift-info">
+                        <div class="gift-tit">得獎日期</div>
+                        <div class="gift-val">2025/6/6</div>
+                    </div>
+                    <div class="gift-info">
+                        <div class="gift-tit">全家兌換PIN碼</div>
+                        <div class="gift-val -frame">AQW84HV957UDF481HJV</div>
+                    </div>
+                    <div class="gift-info">
+                        <div class="gift-tit">兌換截止日期</div>
+                        <div class="gift-val -rd">2026/01/31</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 無資料 -->
+            <!-- <div class="nodata">
+                尚未獲得贈品
+            </div> -->
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="./assets/css/gift.min.css">
+{% endblock %}

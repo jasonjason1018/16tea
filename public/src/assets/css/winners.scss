@@ -1,0 +1,83 @@
+@import "./_variables";
+@import "./_mixins";
+
+.winners {
+    text-align: center;
+
+    &-group {
+        padding-bottom: pc(140);
+    }
+
+    &-tit {
+        font-size: pc(66);
+        font-weight: 300;
+        letter-spacing: em(0.66, 66);
+        line-height: 1.1;
+        color: $action-color;
+
+        .-p01 & {
+            background: url(../image/winners/tit-01.png) no-repeat center/contain;
+        }
+
+        .-p02 & {
+            background: url(../image/winners/tit-02.png) no-repeat center/contain;
+        }
+
+        .-p03 & {
+            background: url(../image/winners/tit-03.png) no-repeat center/contain;
+        }
+    }
+
+    &-name {
+        margin: 0 pc(-30);
+        font-size: pc(45);
+        font-weight: 500;
+        line-height: 1.8;
+        letter-spacing: em(4, 45);
+        color: $action-color;
+    }
+
+    &-pic {
+        margin: pc(30) 0;
+
+        img {
+            width: pc(682);
+        }
+    }
+
+    &-list {
+        margin-top: pc(30);
+        font-size: pc(42);
+        font-weight: 300;
+        line-height: 1.6;
+        letter-spacing: em(4, 42);
+    }
+
+    @include breakpoint-down('tablet') {
+        &-group {
+            padding-bottom: vw(140);
+        }
+
+        &-tit {
+            font-size: vw(66);
+        }
+
+        &-name {
+            margin: 0 vw(-30);
+            font-size: vw(45);
+        }
+
+        &-pic {
+            margin: vw(30) 0;
+
+            img {
+                width: vw(682);
+            }
+        }
+
+        &-list {
+            margin-top: vw(30);
+            font-size: vw(42);
+        }
+    }
+}

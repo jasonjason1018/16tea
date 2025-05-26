@@ -1,0 +1,19 @@
+.mbOnly {
+    @include breakpoint-up('laptop') {
+        display: none;
+    }
+}
+
+.pcOnly {
+    @include breakpoint-down('tablet') {
+        display: none;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+}

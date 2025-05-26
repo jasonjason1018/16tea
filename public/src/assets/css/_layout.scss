@@ -1,0 +1,508 @@
+@import "./_variables";
+@import "./_mixins";
+
+body {
+    min-height: calc(var(--vh, 1vh) * 100);
+    overflow-x: hidden;
+    background-color: #e6f3e7;
+
+    &.-isPopupOpen,
+    &.-menuOpen {
+        overflow: hidden;
+    }
+}
+
+.container {
+    position: relative;
+    box-sizing: border-box;
+    max-width: pc(1170);
+    margin: 0 auto;
+    overflow: hidden;
+
+    @include breakpoint-down('tablet') {
+        max-width: none;
+    }
+}
+
+.landscape {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .8);
+    backdrop-filter: blur(pc(15));
+    z-index: $z-landscape;
+
+    @media (orientation: landscape) {
+        body:not(.-isPc) & {
+            display: flex;
+        }
+    }
+}
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(48px, 0);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: $z-loading;
+
+    &-wrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+    }
+
+    &-dot {
+        position: absolute;
+        top: 33px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: #93bc58;
+
+        &:nth-child(1) {
+            left: 8px;
+            animation: .6s infinite lds-ellipsis1;
+        }
+
+        &:nth-child(2) {
+            left: 8px;
+            animation: .6s infinite lds-ellipsis2;
+        }
+
+        &:nth-child(3) {
+            left: 56px;
+            animation: .6s infinite lds-ellipsis3;
+        }
+    }
+}
+
+/* ------------------------------- Header ------------------------------- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: $z-header;
+    pointer-events: none;
+
+    &-wrap {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        gap: pc(26);
+        max-width: pc(1170);
+        margin: 0 auto;
+        padding: pc(60) pc(90) 0 pc(55);
+    }
+
+    &-logo {
+        flex: 1;
+        position: relative;
+        display: block;
+        font-size: 0;
+        transition: opacity .3s;
+
+        &.-hide {
+            opacity: 0;
+            pointer-events: none;
+
+            * {
+                pointer-events: none;
+            }
+        }
+
+        a {
+            display: inline-block;
+            pointer-events: visible;
+
+            img {
+                width: pc(253);
+            }
+        }
+    }
+
+    &-subject {
+        position: absolute;
+        top: calc(100% - pc(30));
+        left: pc(-30);
+        width: pc(312);
+        pointer-events: visible;
+    }
+
+    &-btn {
+        width: pc(110);
+        font-size: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        pointer-events: visible;
+        overflow: hidden;
+
+        &[data-voice="on"] {
+            img {
+                &:nth-child(2) {
+                    display: none;
+                }
+            }
+        }
+
+        &[data-voice="off"] {
+            img {
+                &:nth-child(1) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &-nav {
+        position: absolute;
+        top: 0;
+        left: calc(50% + 1px);
+        transform: translateX(-50%);
+        box-sizing: border-box;
+        width: 100%;
+        max-width: pc(1170);
+        height: calc(var(--vh, 1vh) * 100);
+        background-color: rgba(130, 174, 124, 0.7);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s;
+        overflow: hidden;
+
+        & * {
+            pointer-events: none;
+        }
+
+        .-menuOpen & {
+            opacity: 1;
+            pointer-events: visible;
+
+            & * {
+                pointer-events: visible;
+            }
+        }
+    }
+
+    @include breakpoint-down('tablet') {
+        &-wrap {
+            gap: vw(26);
+            max-width: vw(1170);
+            padding: vw(60) vw(90) 0 vw(55);
+        }
+
+        &-logo {
+            a {
+                img {
+                    width: vw(253);
+                }
+            }
+        }
+
+        &-subject {
+            top: calc(100% - vw(30));
+            left: vw(-30);
+            width: vw(312);
+        }
+
+        &-btn {
+            width: vw(110);
+        }
+
+        &-nav {
+            left: 0;
+            transform: none;
+            max-width: vw(1170);
+        }
+    }
+}
+
+.nav {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: pc(90);
+    width: pc(752);
+    height: 100%;
+    margin-left: auto;
+    padding: pc(220) pc(40) pc(90) 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    transform: translateX(100%);
+    transition: transform .3s;
+
+    .-menuOpen & {
+        transform: translateX(0);
+    }
+
+    &-close {
+        position: absolute;
+        top: pc(75);
+        right: pc(106);
+        width: pc(80);
+        height: pc(80);
+        background: url(../image/layout/close.svg) no-repeat center/contain;
+        cursor: pointer;
+    }
+
+    &-user {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        gap: pc(20);
+        margin-left: pc(-46);
+    }
+
+    &-pic {
+        position: relative;
+        box-sizing: border-box;
+        width: pc(244);
+        padding: pc(20);
+        border-radius: 50%;
+        overflow: hidden;
+        z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: pc(46);
+            background-color: rgba(255, 255, 255, 0.85);
+        }
+
+        img {
+            position: relative;
+            border-radius: 50%;
+        }
+    }
+
+    &-name {
+        font-size: pc(60);
+        letter-spacing: 0.1em;
+    }
+
+    &-content {
+        flex: 1 1 auto;
+        box-sizing: border-box;
+        padding: 0 pc(40) 0 pc(90);
+    }
+
+    &-links {
+        display: inline-flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: pc(46);
+
+        a {
+            font-size: pc(52);
+            color: $action-color;
+            text-decoration: none;
+        }
+    }
+
+    &-social {
+        display: flex;
+        align-items: center;
+        gap: pc(35);
+        margin: pc(70) 0;
+
+        a {
+            flex: 0 0 auto;
+            width: pc(106);
+        }
+    }
+
+    @include breakpoint-down('tablet') {
+        gap: vw(90);
+        width: vw(752);
+        padding: vw(220) vw(40) vw(90) 0;
+
+        &-close {
+            top: vw(75);
+            right: vw(106);
+            width: vw(80);
+            height: vw(80);
+        }
+
+        &-user {
+            gap: vw(20);
+            margin-left: vw(-46);
+        }
+
+        &-pic {
+            width: vw(244);
+            padding: vw(20);
+
+            &::before {
+                width: vw(46);
+            }
+        }
+
+        &-name {
+            font-size: vw(60);
+        }
+
+        &-content {
+            padding: 0 vw(40) 0 vw(90);
+        }
+
+        &-links {
+            gap: vw(46);
+
+            a {
+                font-size: vw(52);
+            }
+        }
+
+        &-social {
+            gap: vw(35);
+            margin: vw(70) 0;
+
+            a {
+                width: vw(106);
+            }
+        }
+    }
+}
+
+/* ------------------------------- Main ------------------------------- */
+.main {
+    height: calc(var(--vh, 1vh) * 100);
+    min-height: pc(1680);
+    z-index: 1;
+    background: url(../image/kv/bg.jpg) no-repeat center/cover;
+
+    &.-scroll {
+        min-height: pc(1200);
+    }
+
+    &.-f01 {
+        background-image: url(../image/map1/bg.jpg);
+    }
+
+    &.-f02 {
+        background-image: url(../image/map2/bg.jpg);
+    }
+
+    &.-f03 {
+        background-image: url(../image/map3/bg.jpg);
+    }
+
+    &-wrap {
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: pc(350) pc(70) pc(70);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            mix-blend-mode: screen;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 229, 0), rgba(255, 255, 229, 0.93) 35%);
+            pointer-events: none;
+        }
+
+        &>div {
+            position: relative;
+        }
+    }
+
+    &-tit {
+        flex: 0 0 auto;
+        margin-bottom: pc(76);
+        padding-left: em(12, 92);
+        font-size: pc(92);
+        letter-spacing: em(12, 92);
+        color: $main-color;
+        text-align: center;
+    }
+
+    &-content {
+        flex: 1 1 auto;
+        padding: 0 pc(70);
+
+        &.-card {
+            box-sizing: border-box;
+            height: 100%;
+            padding: 0 pc(50);
+        }
+    }
+
+    @include breakpoint-down('tablet') {
+        min-height: vw(1680);
+
+        &.-scroll {
+            min-height: vw(1200);
+        }
+
+        &-wrap {
+            padding: vw(350) vw(70) vw(70);
+        }
+
+        &-tit {
+            margin-bottom: vw(76);
+            font-size: vw(92);
+        }
+
+        &-content {
+            padding: 0 vw(70);
+
+            &.-card {
+                padding: 0 vw(50);
+            }
+        }
+    }
+}
+
+/* ------------------------------- Floating tool ------------------------------- */

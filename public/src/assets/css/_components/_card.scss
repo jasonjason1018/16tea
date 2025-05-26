@@ -1,0 +1,23 @@
+.card {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: pc(280) 0 pc(60);
+
+    &-wrap {
+        width: 100%;
+        border-radius: pc(55);
+        box-shadow: pc(-6) pc(4) pc(16) pc(2) rgba(10, 51, 9, 0.22);
+        background-color: #f0ebd6;
+    }
+
+    @include breakpoint-down('tablet') {
+        padding: vw(280) 0 vw(60);
+
+        &-wrap {
+            border-radius: vw(55);
+            box-shadow: vw(-6) vw(4) vw(16) vw(2) rgba(10, 51, 9, 0.22);
+        }
+    }
+}
