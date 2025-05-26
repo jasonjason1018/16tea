@@ -13,6 +13,9 @@ function handleLottery () {
 
             $('#lottery').attr('data-popup-btn', popupBtn);
             $('#lottery').trigger('click');
+        },
+        error: function () {
+            location.href = '/list';
         }
     });
 }
@@ -47,6 +50,9 @@ function addRecord() {
         method: 'POST',
         data: {
             'score': score
+        },
+        error: function () {
+            location.href = '/list';
         }
     });
 }

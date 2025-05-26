@@ -53,6 +53,9 @@ $('#form-btn').click(function () {
         },
         success: function(response) {
             location.href = `/${topic}/complete`;
+        },
+        error: function () {
+            location.href = '/list';
         }
     });
 });

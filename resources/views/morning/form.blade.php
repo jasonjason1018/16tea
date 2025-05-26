@@ -148,6 +148,7 @@
 <script src="/js/form.js"></script>
 <script>
     var topic = 'morning';
+    var uid = {{ session('user')['uid'] }};
 
     function reloadCaptcha() {
         const captcha = document.getElementById('captcha-img');

@@ -71,7 +71,7 @@
                             <img src="./../assets/image/winners/03.jpg" alt="">
                         </div>
                         <div class="complete-action">
-                            <a href="./../list.html" class="btn">回首頁</a>
+                            <a href="/list" class="btn">回首頁</a>
                         </div>
                     </div>
                 </div>

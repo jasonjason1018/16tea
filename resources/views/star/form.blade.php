@@ -15,17 +15,17 @@
 
     <link rel="manifest" href="./../site.json" crossorigin="use-credentials">
     <link rel="shortcut icon" href="./../favicon.ico"/>
-    <link rel="apple-touch-icon" href="./../assets/image/touch/logo.png">
+    <link rel="apple-touch-icon" href="/assets/image/touch/logo.png">
 
 
-    <link rel="stylesheet" href="./../assets/css/normalize.min.css">
-    <link rel="stylesheet" href="./../assets/lib/overlayScrollbars/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="./../assets/css/main.min.css">
+    <link rel="stylesheet" href="/assets/css/normalize.min.css">
+    <link rel="stylesheet" href="/assets/lib/overlayScrollbars/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="/assets/css/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./../assets/css/form.min.css">
+    <link rel="stylesheet" href="/assets/css/form.min.css">
 
     <meta name="theme-color" content="#ffffff">
 
@@ -65,28 +65,29 @@
                         <div class="form-item">
                             <div class="form-title">請輸入真實姓名</div>
                             <div class="form-val">
-                                <input type="text">
+                                <input type="text" id="name">
                             </div>
                         </div>
                         <div class="form-item">
                             <div class="form-title">手機號碼</div>
                             <div class="form-val">
-                                <input type="tel">
+                                <input type="tel" id="mobile">
                             </div>
                         </div>
                         <div class="form-item">
                             <div class="form-title">電子信箱</div>
                             <div class="form-val">
-                                <input type="email" class="-lg">
+                                <input type="email" class="-lg" id="email">
                             </div>
                         </div>
                         <div class="form-item">
                             <div class="form-title">驗證碼</div>
                             <div class="form-val">
-                                <input type="text" class="-sm">
+                                <input type="text" class="-sm" id="captcha">
                                 <div class="form-verify">
                                     <div>
                                         <img id="captcha-img" src="{{ captcha_src() }}" alt="captcha">
+                                        {{--                                        <img src="/assets/image/form/verify.png" alt="">--}}
                                     </div>
                                     <button onclick="reloadCaptcha()"></button>
                                 </div>
@@ -96,14 +97,15 @@
                             <input type="checkbox" name="" id="agree">
                             <label for="agree">
                             <span>
-                                我已了解定<a href="./../rule.html#personal" target="_blank" rel="noopener noreferrer">同意個人資料搜集將關規定</a>，且已詳知活動辦法並同意遵守規範若填寫資料錯誤願意放棄得獎資格
+                                我已了解定<a href="/rule#personal" target="_blank" rel="noopener noreferrer">同意個人資料搜集將關規定</a>，且已詳知活動辦法並同意遵守規範若填寫資料錯誤願意放棄得獎資格
                             </span>
                             </label>
                         </div>
                         <div class="form-action">
                             <!-- 可送出請移除disabled屬性 -->
                             <!-- <button class="btn" disabled><span>確認送出</span></button> -->
-                            <a href="complete.blade.php" class="btn"><span>確認送出</span></a>
+{{--                            <a href="complete.blade.php" class="btn"><span>確認送出</span></a>--}}
+                            <button class="btn" id="form-btn"><span>確認送出</span></button>
                         </div>
                     </div>
                 </div>
@@ -137,15 +139,17 @@
     </div>
 </div>
 
-<script src="./../assets/lib/jquery-3.7.1.min.js"></script>
-<script src="./../assets/lib/imagesloaded.pkgd.min.js"></script>
-<script src="./../assets/lib/ua-parser.min.js"></script>
-<script src="./../assets/lib/clipboard.min.js"></script>
-<script src="./../assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
+<script src="/assets/lib/jquery-3.7.1.min.js"></script>
+<script src="/assets/lib/imagesloaded.pkgd.min.js"></script>
+<script src="/assets/lib/ua-parser.min.js"></script>
+<script src="/assets/lib/clipboard.min.js"></script>
+<script src="/assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
 
-<script src="./../assets/js/main.min.js"></script>
+<script src="/assets/js/main.min.js"></script>
+<script src="/js/form.js"></script>
 <script>
     var topic = 'star';
+    var uid = {{ session('user')['uid'] }};
 
     function reloadCaptcha() {
         const captcha = document.getElementById('captcha-img');
