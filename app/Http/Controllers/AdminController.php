@@ -13,7 +13,7 @@ use App\Models\Admin;
 
 class AdminController extends Controller
 {
-    const PAGE_LIMIT = 50;
+    const PAGE_LIMIT = 20;
     public function createAdmin(Request $request)
     {
         $account = $request->account;

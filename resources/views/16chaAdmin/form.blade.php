@@ -443,16 +443,16 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="card-header">
-                                <form>
-                                    <div class="row">
-                                        <div class="col">
-                                            <input class="form-control" name="id" value="" placeholder="序號">
-                                        </div>
-                                        <div class="col">
-                                            <button type="submit" class="btn btn-info">查詢</button>
-                                        </div>
-                                    </div>
-                                </form>
+{{--                                <form>--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col">--}}
+{{--                                            <input class="form-control" name="id" value="" placeholder="序號">--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col">--}}
+{{--                                            <button type="submit" class="btn btn-info">查詢</button>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </form>--}}
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered">
