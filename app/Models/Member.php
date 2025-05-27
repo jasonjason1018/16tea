@@ -12,6 +12,7 @@ class Member extends Model
         'name',
         'uid',
         'source',
+        'ip'
     ];
 
     const SOURCE = [

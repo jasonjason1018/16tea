@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 use Socialite;
 
 class LoginController extends Controller
@@ -28,7 +30,8 @@ class LoginController extends Controller
             Member::create([
                 'name' => Crypt::encrypt($user['name']),
                 'source' => Member::SOURCE['line'],
-                'uid' => $uid
+                'uid' => $uid,
+                'ip' => $this->getIp()
             ]);
         }
 
@@ -59,7 +62,8 @@ class LoginController extends Controller
             Member::create([
                 'name' => Crypt::encrypt($user->getName()),
                 'source' => Member::SOURCE['fb'],
-                'uid' => $uid
+                'uid' => $uid,
+                'ip' => $this->getIp()
             ]);
         }
 
@@ -83,5 +87,42 @@ class LoginController extends Controller
         session()->forget('user');
 
         return redirect('/');
+    }
+
+    public function adminLogin(Request $request)
+    {
+        $requestData = $request->input();
+
+        if (!$requestData) {
+            throw new \Exception('missing parameter.');
+        }
+
+        $account = $requestData['account'];
+
+        if (!$account) {
+            throw new \Exception('account can not be empty');
+        }
+
+        $pwd = $requestData['pwd'];
+
+        if (!$pwd) {
+            throw new \Exception('pwd can not be empty');
+        }
+
+        $admin = Admin::where('account', '=', $account)->first();
+
+        if (!$admin) {
+            throw new \Exception('account or password incorrect');
+        }
+
+        if (Hash::check($pwd, $admin->pwd)) {
+            session()->put('admin', [
+                'id_admin' => $admin->id_admin
+            ]);
+
+            return response('success');
+        }
+
+        throw new \Exception('account or password incorrect');
     }
 }

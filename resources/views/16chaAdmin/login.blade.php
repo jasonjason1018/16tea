@@ -476,6 +476,21 @@
             alert('密碼不可為空');
             return false;
         }
+
+        $.ajax({
+            url: '/api/16chaAdmin/login',
+            method: 'POST',
+            data: {
+                'account': account,
+                'pwd': pwd
+            },
+            success: function () {
+                window.location.href = '/16chaAdmin/member';
+            },
+            error: function () {
+                alert('帳號或密碼錯誤');
+            }
+        });
     });
 </script>
 </body>

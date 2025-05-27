@@ -428,60 +428,13 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
 
-    <ul class="navbar-nav  sidebar sidebar-light accordion" id="accordionSidebar" style="background:#fff5c9;">
-
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center"
-           href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/">
-            <div class="sidebar-brand-text mx-3">16茶</div>
-        </a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-        <!-- Nav Item - Dashboard -->
-
-        <li class="nav-item active">
-            <a class="nav-link" href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/member">
-                <i class="fas fa-circle"></i>
-                <span>參與人員名單</span>
-            </a>
-        </li>
-        <li class="nav-item ">
-            <a class="nav-link" href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner">
-                <i class="fas fa-circle"></i>
-                <span>中奬人員名單</span>
-            </a>
-        </li>
-        <li class="nav-item ">
-            <a class="nav-link" href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/form">
-                <i class="fas fa-circle"></i>
-                <span>抽獎名單</span>
-            </a>
-        </li>
-        <li class="nav-item ">
-            <a class="nav-link" href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/analysis">
-                <i class="fas fa-circle"></i>
-                <span>數據統計</span>
-            </a>
-        </li>
-    </ul>
+    @include('16chaAdmin.include.sideBar')
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
         <!-- Main Content -->
         <div id="content">
-
-            <nav class="navbar navbar-expand-lg navbar-light shadow-sm justify-content-between"
-                 style="background:#fff5c9;">
-                <a class="navbar-brand" href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin"></a>
-
-
-                <div class="navbar-right">
-                    <a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/logout"
-                       class="btn btn-outline-dark"><i class="fas fa-sign-out-alt"></i></a>
-                </div>
-            </nav>
+            @include('16chaAdmin.include.header')
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
@@ -490,7 +443,7 @@
                 <div>
                 <div class="card">
                 <div class="card-body">
-                    <div class="mb-2">共：7978人</div>
+                    <div class="mb-2">共：{{ $members->total() }}人</div>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -502,205 +455,70 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>7978</td>
-                                <td>fb</td>
-                                <td>
-                                    <a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7978">林于婕</a>
-                                </td>
-                                <td>114.44.56.102</td>
-                            </tr>
-                            <tr>
-                                <td>7977</td>
-                                <td>line</td>
-                                <td><a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7977">Mori8.0(蘿蔔森</a>
-                                </td>
-                                <td>61.219.91.70</td>
-                            </tr>
-                            <tr>
-                                <td>7976</td>
-                                <td>line</td>
-                                <td><a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7976">𝐋𝐢𝐧𝐠</a>
-                                </td>
-                                <td>42.71.167.121</td>
-                            </tr>
-                            <tr>
-                                <td>7975</td>
-                                <td>line</td>
-                                <td>
-                                    <a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7975">邱益增</a>
-                                </td>
-                                <td>27.240.170.118</td>
-                            </tr>
-                            <tr>
-                                <td>7974</td>
-                                <td>line</td>
-                                <td>
-                                    <a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7974">柏煒</a>
-                                </td>
-                                <td>45.144.227.87</td>
-                            </tr>
-                            <tr>
-                                <td>7973</td>
-                                <td>fb</td>
-                                <td><a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7973">Huanghuang
-                                        Huang</a></td>
-                                <td>49.217.58.9</td>
-                            </tr>
-                            <tr>
-                                <td>7972</td>
-                                <td>line</td>
-                                <td>
-                                    <a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7972">陳威成</a>
-                                </td>
-                                <td>223.141.250.120</td>
-                            </tr>
-                            <tr>
-                                <td>7971</td>
-                                <td>fb</td>
-                                <td>
-                                    <a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7971">林忠明</a>
-                                </td>
-                                <td>61.224.15.204</td>
-                            </tr>
-                            <tr>
-                                <td>7970</td>
-                                <td>line</td>
-                                <td>
-                                    <a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7970">高宇祥</a>
-                                </td>
-                                <td>114.140.90.187</td>
-                            </tr>
-                            <tr>
-                                <td>7969</td>
-                                <td>line</td>
-                                <td>
-                                    <a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7969">紘暘</a>
-                                </td>
-                                <td>42.78.17.167</td>
-                            </tr>
-                            <tr>
-                                <td>7968</td>
-                                <td>line</td>
-                                <td><a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7968">長長久久</a>
-                                </td>
-                                <td>49.215.156.182</td>
-                            </tr>
-                            <tr>
-                                <td>7967</td>
-                                <td>line</td>
-                                <td>
-                                    <a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7967">卓育陞</a>
-                                </td>
-                                <td>111.83.117.175</td>
-                            </tr>
-                            <tr>
-                                <td>7966</td>
-                                <td>line</td>
-                                <td><a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7966">Blunt</a>
-                                </td>
-                                <td>36.231.65.30</td>
-                            </tr>
-                            <tr>
-                                <td>7965</td>
-                                <td>line</td>
-                                <td><a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7965">徐如芳Candy🍭</a>
-                                </td>
-                                <td>27.52.196.230</td>
-                            </tr>
-                            <tr>
-                                <td>7964</td>
-                                <td>line</td>
-                                <td>
-                                    <a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7964">巧藍</a>
-                                </td>
-                                <td>114.140.113.180</td>
-                            </tr>
-                            <tr>
-                                <td>7963</td>
-                                <td>line</td>
-                                <td><a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7963">Sam(庭寶）</a>
-                                </td>
-                                <td>42.77.184.196</td>
-                            </tr>
-                            <tr>
-                                <td>7962</td>
-                                <td>line</td>
-                                <td><a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7962">冰綺淋★彡</a>
-                                </td>
-                                <td>101.139.86.71</td>
-                            </tr>
-                            <tr>
-                                <td>7961</td>
-                                <td>line</td>
-                                <td>
-                                    <a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7961">張鈞雅</a>
-                                </td>
-                                <td>223.141.242.53</td>
-                            </tr>
-                            <tr>
-                                <td>7960</td>
-                                <td>line</td>
-                                <td><a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7960">APO
-                                        :))</a></td>
-                                <td>223.137.62.225</td>
-                            </tr>
-                            <tr>
-                                <td>7959</td>
-                                <td>line</td>
-                                <td>
-                                    <a href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/winner?id=7959">吳采欣</a>
-                                </td>
-                                <td>114.136.63.26</td>
-                            </tr>
+                                @foreach($members as $member)
+                                    <tr>
+                                        <td>{{ $member['id_member'] }}</td>
+                                        <td>{{ $member['source'] }}</td>
+                                        <td>
+                                            {{ $member['name'] }}
+                                        </td>
+                                        <td>{{ $member['ip'] }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                     <div class="">
-                        <ul class="pagination">
+                        @if ($members->hasPages())
+                            <ul class="pagination">
+                                {{-- 上一頁 --}}
+                                @if ($members->onFirstPage())
+                                    <li class="page-item disabled"><span class="page-link">«</span></li>
+                                @else
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $members->url(1) }}">«</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $members->previousPageUrl() }}">‹</a>
+                                    </li>
+                                @endif
 
-                            <li class="page-item disabled"><span class="page-link">«</span></li>
+                                {{-- 中間頁碼 --}}
+                                @php
+                                    $start = max($members->currentPage() - 2, 1);
+                                    $end = min($members->currentPage() + 2, $members->lastPage());
+                                @endphp
 
+                                @if ($start > 1)
+                                    <li class="page-item disabled"><span class="page-link">...</span></li>
+                                @endif
 
-                            <li class="page-item active"><span class="page-link">1</span></li>
-                            <li class="page-item"><a class="page-link"
-                                                     href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/member?page=2">2</a>
-                            </li>
-                            <li class="page-item"><a class="page-link"
-                                                     href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/member?page=3">3</a>
-                            </li>
-                            <li class="page-item"><a class="page-link"
-                                                     href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/member?page=4">4</a>
-                            </li>
-                            <li class="page-item"><a class="page-link"
-                                                     href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/member?page=5">5</a>
-                            </li>
-                            <li class="page-item"><a class="page-link"
-                                                     href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/member?page=6">6</a>
-                            </li>
-                            <li class="page-item"><a class="page-link"
-                                                     href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/member?page=7">7</a>
-                            </li>
-                            <li class="page-item"><a class="page-link"
-                                                     href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/member?page=8">8</a>
-                            </li>
+                                @for ($i = $start; $i <= $end; $i++)
+                                    @if ($i == $members->currentPage())
+                                        <li class="page-item active"><span class="page-link">{{ $i }}</span></li>
+                                    @else
+                                        <li class="page-item"><a class="page-link" href="{{ $members->url($i) }}">{{ $i }}</a></li>
+                                    @endif
+                                @endfor
 
-                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                                @if ($end < $members->lastPage())
+                                    <li class="page-item disabled"><span class="page-link">...</span></li>
+                                @endif
 
-
-                            <li class="page-item"><a class="page-link"
-                                                     href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/member?page=398">398</a>
-                            </li>
-                            <li class="page-item"><a class="page-link"
-                                                     href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/member?page=399">399</a>
-                            </li>
-
-
-                            <li class="page-item"><a class="page-link"
-                                                     href="https://16cha-2025q1cny.asahisoftdrinks.com.tw/webadmin/member?page=2"
-                                                     rel="next">»</a></li>
-                        </ul>
-
+                                {{-- 下一頁 --}}
+                                @if ($members->hasMorePages())
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $members->nextPageUrl() }}">›</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $members->url($members->lastPage()) }}">»</a>
+                                    </li>
+                                @else
+                                    <li class="page-item disabled"><span class="page-link">›</span></li>
+                                    <li class="page-item disabled"><span class="page-link">»</span></li>
+                                @endif
+                            </ul>
+                        @endif
                     </div>
                 </div>
             </div>

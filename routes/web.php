@@ -56,6 +56,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('/lottery', 'LotteryController@lottery');
     Route::post('/form', 'FormController@insertForm');
     Route::post('/score', 'MemberController@score');
+    Route::post('/16chaAdmin/login', 'LoginController@adminLogin');
 });
 
 Route::get('captcha', function () {
@@ -64,7 +65,10 @@ Route::get('captcha', function () {
 
 Route::group(['prefix' => '16chaAdmin'], function () {
     Route::view('/', '16chaAdmin.login');
-    Route::view('/member', '16chaAdmin.member');
-    Route::view('/form', '16chaAdmin.form');
-    Route::view('/winner', '16chaAdmin.winner');
+    Route::group(['middleware' => 'adminAuth'], function() {
+        Route::get('/member', 'AdminController@member');
+        Route::get('/form', 'AdminController@form');
+        Route::get('/winner', 'AdminController@winner');
+    });
+    Route::get('/logout', 'AdminController@logout');
 });

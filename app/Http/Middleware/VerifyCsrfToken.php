@@ -14,5 +14,6 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/api/form',
         '/api/score',
+        '/api/16chaAdmin/login'
     ];
 }
