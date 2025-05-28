@@ -1,3 +1,13 @@
+.main-wrap {
+  padding: 152.1739130435px 5.2173913043px 30.4347826087px;
+}
+
+@media only screen and (max-width: 1023px) {
+  .main-wrap {
+    padding: 29.9145299145vw 1.0256410256vw 5.9829059829vw;
+  }
+}
+
 .video {
   position: relative;
   padding-bottom: 121.7391304348px;
@@ -7,7 +17,7 @@
   content: "";
   position: absolute;
   bottom: 0;
-  left: -23.4782608696px;
+  left: -4.347826087px;
   width: 496.5217391304px;
   height: 108.6956521739px;
   background: url(../image/video/deco.png) no-repeat center/contain;
@@ -17,7 +27,7 @@
 .video::after {
   content: "";
   position: absolute;
-  top: 317.3913043478px;
+  top: 334.7826086957px;
   left: 61.7391304348px;
   width: 342.1739130435px;
   height: 150px;
@@ -49,8 +59,6 @@
 
 .video-yt {
   position: relative;
-  width: 450.8695652174px;
-  margin: 0 auto;
 }
 
 .video-yt img {
@@ -71,13 +79,13 @@
   }
 
   .video::before {
-    left: -4.6153846154vw;
+    left: -0.8547008547vw;
     width: 97.6068376068vw;
     height: 21.3675213675vw;
   }
 
   .video::after {
-    top: 62.3931623932vw;
+    top: 65.811965812vw;
     left: 12.1367521368vw;
     width: 67.264957265vw;
     height: 29.4871794872vw;
@@ -93,10 +101,6 @@
     left: calc(50% - 25.641025641vw);
     width: 61.1965811966vw;
     height: 7.6923076923vw;
-  }
-
-  .video-yt {
-    width: 88.6324786325vw;
   }
 
   .video-yt iframe {

@@ -86,7 +86,7 @@
 }
 
 .list-item:nth-child(odd) {
-  justify-self: flex-start;
+  justify-content: flex-start;
   margin: -33.0434782609px 0;
 }
 

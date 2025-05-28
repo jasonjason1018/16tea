@@ -7,10 +7,19 @@
   });
 
   // 取得隨機目標數量(1-2個)
-  const targetNum = Math.floor(Math.random() * 2) + 1;
-  // const targetNum = 4;
-  $('.task-num, [data-target]').text(targetNum);
-  const targetScore = targetNum * $('[data-item]').length;
+  let targetData = {};
+  let targetScore = 0;
+  $('[data-item]').each((i, el) => {
+    const id = $(el).data('item');
+    const num = Math.floor(Math.random() * 2) + 1;
+    targetData[id] = num;
+    targetScore += num;
+    $(el).find('[data-target]').text(num);
+  });
+  $('[data-task-num]').each((i, el) => {
+    const id = $(el).data('taskNum');
+    $(el).text(targetData[id]);
+  });
   let currentScore = 0;
 
   // 介紹進場動畫
@@ -119,6 +128,7 @@
     backgroundAlpha: 0,
     resizeTo: document.querySelector('#canvas-container'),
     resolution: window.devicePixelRatio || 1,
+    autoDensity: true,
     antialias: true
   });
   document.querySelector('#canvas-container').appendChild(app.view);
@@ -143,7 +153,7 @@
     item.anchor.set(0.5);
     item.eventMode = 'static';
     item.cursor = 'pointer';
-    if (hitArea !== undefined && hitArea.length > 0) {
+    if (hitArea.length > 0) {
       const offsetX = width * -0.5;
       const offsetY = height * -0.5;
       const points = hitArea.map((val, i) => i % 2 === 0 ? val + offsetX : val + offsetY);
@@ -160,22 +170,23 @@
 
     item.on('pointerdown', () => {
       if (!isStart) return;
-      item.eventMode = 'none';
       if (name !== 'coffee') {
+        item.eventMode = 'none';
         score[name]++;
         currentScore++;
         // $(`[data-item="${name}"]`).addClass('-active').find('[data-num]').text(score[name]);
         $(`[data-item="${name}"]`).find('[data-num]').text(score[name]);
         addTl.play();
+        if (targetScore === currentScore) {
+          setTimeout(() => {
+            endTimer();
+          }, 1000);
+        }
+        itemTl.play();
       } else {
         $('.game-stage').addClass('-coffee');
+        itemTl.restart();
       }
-      if (targetScore === currentScore) {
-        setTimeout(() => {
-          endTimer();
-        }, 1000);
-      }
-      itemTl.play();
     });
     const originalTexture = await PIXI.Assets.load(`/assets/image/map${mapNum}/game/original/${imgName}.png`);
     const original = new PIXI.Sprite(originalTexture);
@@ -185,6 +196,10 @@
     container.addChild(original);
     const addTl = gsap.timeline();
     addTl.pause();
+
+    // 物件點擊動畫
+    const itemTl = gsap.timeline();
+    itemTl.pause();
     if (name !== 'coffee') {
       const addTexture = await PIXI.Assets.load(`/assets/image/other/add.png`);
       const add = new PIXI.Sprite(addTexture);
@@ -200,24 +215,48 @@
         delay: 0.3
       });
       app.stage.addChild(add);
+      itemTl.to(container.scale, {
+        x: 1.3,
+        y: 1.3,
+        duration: 0.5,
+        ease: 'back.out(4)'
+      }).to(original, {
+        alpha: 1,
+        duration: 0.5
+      }, '<').to(container, {
+        alpha: 0,
+        duration: 0.3,
+        delay: 0.2
+      });
+    } else {
+      const shakeLeft = x - 10 + width * 0.5;
+      const shakeRight = x + 10 + width * 0.5;
+      itemTl.to(original, {
+        alpha: 1,
+        duration: 0.1
+      }).to(container, {
+        x: shakeLeft,
+        duration: 0.1
+      }, '<').to(container, {
+        x: shakeRight,
+        duration: 0.1
+      }).to(container, {
+        x: shakeLeft,
+        duration: 0.1
+      }).to(container, {
+        x: shakeRight,
+        duration: 0.1
+      }).to(container, {
+        x: shakeLeft,
+        duration: 0.1
+      }).to(container, {
+        x: shakeRight,
+        duration: 0.1
+      }).to(container, {
+        x: x + width * 0.5,
+        duration: 0.1
+      });
     }
-
-    // 物件點擊動畫
-    const itemTl = gsap.timeline();
-    itemTl.pause();
-    itemTl.to(container.scale, {
-      x: 1.3,
-      y: 1.3,
-      duration: 0.5,
-      ease: 'back.out(4)'
-    }).to(original, {
-      alpha: 1,
-      duration: 0.5
-    }, '<').to(container, {
-      alpha: 0,
-      duration: 0.3,
-      delay: 0.2
-    });
   };
   // 新增覆蓋葉子
   const createLeaf = async _ref2 => {
@@ -256,7 +295,7 @@
     Object.entries(data.items).forEach(_ref3 => {
       let [key, value] = _ref3;
       // 取得隨機序列資料
-      const randomIndex = [1, 2, 3, 4].sort(() => Math.random() - 0.5).slice(0, targetNum).map(i => i - 1);
+      const randomIndex = [1, 2, 3, 4].sort(() => Math.random() - 0.5).slice(0, targetData[key]).map(i => i - 1);
       randomIndex.map(i => value[i]).forEach((item, i) => {
         const {
           x,
@@ -299,14 +338,16 @@
       x,
       y,
       width,
-      height
+      height,
+      hitArea
     } = data.coffee;
     createItem({
       x,
       y,
       width,
       height,
-      imgName: 'coffee'
+      imgName: 'coffee',
+      hitArea
     });
     // 若咖啡豆有葉子覆蓋
     if (data.coffee.leaf) {
@@ -333,21 +374,20 @@
     } else {
       $('[data-popup="fail"]').addClass('-show');
       $('body').addClass('-fail');
-      $('[data-share]').remove();
     }
     $('[data-found]').text(currentScore);
     $('[data-notfound]').text(targetScore - currentScore);
     const percent = currentScore / targetScore;
     let level = 'A';
-    let txt = '你是十六食穀收集達人 !';
-    if (percent >= 0.76) {
+    let txt = '差點就成為S級收集達人！\n再試一次！';
+    if (percent == 1) {
       level = 'S';
-      txt = '十六食穀之王非你莫屬';
+      txt = '十六食穀收集達人非你莫屬！';
     }
     ;
-    if (percent <= 0.4) {
+    if (percent < 0.5) {
       level = 'B';
-      txt = '還有好多食穀沒找到耶~再試試吧 !';
+      txt = '還有好多食穀沒找到耶~\n再試試吧 !';
     }
     ;
     $('.score-level').addClass(`-${level}`).find('div').text(level);
@@ -370,7 +410,7 @@
         taskTl.play();
         if ($('.main').hasClass('-f01')) {
           $('.header-subject').fadeOut(150, function () {
-            $('.header-subject img').attr('src', './../assets/image/layout/subject-wt.png');
+            $('.header-subject img').attr('src', '/assets/image/layout/subject-wt.png');
             $('.header-subject').fadeIn(150);
           });
         }
@@ -386,11 +426,19 @@
         }, 500);
         break;
       case 'level':
-        $('.header-subject img').attr('src', './../assets/image/layout/subject-dk.png');
+        $('.header-subject img').attr('src', '/assets/image/layout/subject-dk.png');
         $('.header-logo').removeClass('-hide');
         break;
       default:
         break;
+    }
+  });
+  $(window).on('allLoaded', function () {
+    if ($('body').hasClass('-wrongBrowser')) {
+      return;
+    }
+    if (!$('[data-popup="music"]').hasClass('-show')) {
+      introTl.play();
     }
   });
 })();

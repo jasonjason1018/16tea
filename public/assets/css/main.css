@@ -409,6 +409,7 @@ body.-menuOpen {
 
 .nav-pic img {
   position: relative;
+  border-radius: 50%;
 }
 
 .nav-name {
@@ -806,7 +807,7 @@ ol {
   height: 134.7826086957px;
   padding-right: 0.5em;
   font-size: 39.1304347826px;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.1111111111em;
   color: #fdfdfd;
   background: url(../image/other/popup-tit.png) no-repeat center/contain;

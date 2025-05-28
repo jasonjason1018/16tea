@@ -38,8 +38,9 @@
 
 .complete-txt {
   flex: 1 0 auto;
-  margin-top: 34.7826086957px;
-  font-size: 17.3913043478px;
+  margin-top: 21.7391304348px;
+  padding-left: 0.1em;
+  font-size: 20.8695652174px;
   line-height: 1.38;
   letter-spacing: 0.1em;
 }
@@ -66,8 +67,8 @@
   }
 
   .complete-txt {
-    margin-top: 6.8376068376vw;
-    font-size: 3.4188034188vw;
+    margin-top: 4.2735042735vw;
+    font-size: 4.1025641026vw;
   }
 
   .complete-pic {

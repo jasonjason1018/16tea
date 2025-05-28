@@ -45,11 +45,8 @@
   line-height: 1.6;
   letter-spacing: 0.12em;
   color: #035909;
-}
-
-.index-intro > div p {
   opacity: 0;
-  transform: translateY(50%);
+  transform: translateY(-20%);
 }
 
 .index-skip {

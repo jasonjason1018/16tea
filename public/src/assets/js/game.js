@@ -148,7 +148,7 @@
         container.y = y + height * 0.5;
         app.stage.addChild(container);
 
-        const itemTexture = await PIXI.Assets.load(`./../assets/image/map${mapNum}/game/items/${imgName}.png`);
+        const itemTexture = await PIXI.Assets.load(`/assets/image/map${mapNum}/game/items/${imgName}.png`);
         const item = new PIXI.Sprite(itemTexture);
         item.anchor.set(0.5);
         item.eventMode = 'static';
@@ -189,7 +189,7 @@
             itemTl.play();
         });
 
-        const originalTexture = await PIXI.Assets.load(`./../assets/image/map${mapNum}/game/original/${imgName}.png`);
+        const originalTexture = await PIXI.Assets.load(`/assets/image/map${mapNum}/game/original/${imgName}.png`);
         const original = new PIXI.Sprite(originalTexture);
         original.anchor.set(0.5);
         original.alpha = 0;
@@ -200,7 +200,7 @@
         const addTl = gsap.timeline();
         addTl.pause();
         if (name !== 'coffee') {
-            const addTexture = await PIXI.Assets.load(`./../assets/image/other/add.png`);
+            const addTexture = await PIXI.Assets.load(`/assets/image/other/add.png`);
             const add = new PIXI.Sprite(addTexture);
             add.x = x + (width * 0.5) - 55;
             add.y = y - 86;
@@ -240,7 +240,7 @@
     }
     // 新增覆蓋葉子
     const createLeaf = async ({ x, y, width, height, imgName }) => {
-        const leafTexture = await PIXI.Assets.load(`./../assets/image/map${mapNum}/game/leaf/${imgName}.png`);
+        const leafTexture = await PIXI.Assets.load(`/assets/image/map${mapNum}/game/leaf/${imgName}.png`);
         const leaf = new PIXI.Sprite(leafTexture);
         leaf.anchor.set(1, 1);
         leaf.x = x + width;
@@ -265,7 +265,7 @@
     }
 
     // 物件定位資料
-    fetch(`./../assets/image/map${mapNum}/game/data.json`)
+    fetch(`/assets/image/map${mapNum}/game/data.json`)
         .then(res => res.json())
         .then(data => {
             Object.entries(data.items).forEach(([key, value]) => {
@@ -352,7 +352,7 @@
                 taskTl.play();
                 if ($('.main').hasClass('-f01')) {
                     $('.header-subject').fadeOut(150, function () {
-                        $('.header-subject img').attr('src', './../assets/image/layout/subject-wt.png');
+                        $('.header-subject img').attr('src', '/assets/image/layout/subject-wt.png');
                         $('.header-subject').fadeIn(150);
                     });
                 }
@@ -368,7 +368,7 @@
                 }, 500);
                 break;
             case 'level':
-                $('.header-subject img').attr('src', './../assets/image/layout/subject-dk.png');
+                $('.header-subject img').attr('src', '/assets/image/layout/subject-dk.png');
                 $('.header-logo').removeClass('-hide');
                 break;
 

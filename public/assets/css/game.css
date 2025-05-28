@@ -481,12 +481,8 @@
     opacity: 1;
   }
 
-  90% {
-    opacity: 1;
-  }
-
   100% {
-    opacity: 0;
+    opacity: 1;
   }
 }
 
@@ -611,7 +607,7 @@
 }
 
 .game-stage.-coffee::before {
-  animation: fadeIn 2s;
+  animation: fadeIn 1.6s forwards;
 }
 
 .game-stage > canvas {
@@ -746,6 +742,18 @@
   font-size: 19.1304347826px;
   letter-spacing: 0.0227272727em;
   color: #494949;
+}
+
+.instruction::after {
+  content: "請點擊空白處進入遊戲";
+  position: absolute;
+  bottom: 30.4347826087px;
+  left: 34.7826086957px;
+  font-size: 17.3913043478px;
+  letter-spacing: 0.045em;
+  color: #fcf7f7;
+  text-shadow: -2.6086956522px 1.3043478261px 8.6956521739px #022200, -2.6086956522px 1.3043478261px 8.6956521739px #022200;
+  pointer-events: none;
 }
 
 .instruction-time {
@@ -936,6 +944,13 @@
     font-size: 3.7606837607vw;
   }
 
+  .instruction::after {
+    bottom: 5.9829059829vw;
+    left: 6.8376068376vw;
+    font-size: 3.4188034188vw;
+    text-shadow: -0.5128205128vw 0.2564102564vw 1.7094017094vw #022200, -0.5128205128vw 0.2564102564vw 1.7094017094vw #022200;
+  }
+
   .instruction-time {
     top: 27.0085470085vw;
   }
@@ -1093,6 +1108,7 @@
   align-items: center;
   justify-content: center;
   gap: 4.347826087px;
+  padding-left: 0.1724137931em;
   font-size: 25.2173913043px;
   font-weight: 500;
   letter-spacing: 0.1724137931em;
@@ -1336,8 +1352,10 @@
   margin: 39.1304347826px 0;
   padding-left: 0.0625em;
   font-size: 27.8260869565px;
+  line-height: 1.3;
   letter-spacing: 0.0625em;
   color: #416338;
+  white-space: pre-line;
 }
 
 .score-action {
@@ -1351,8 +1369,8 @@
   margin-top: 17.3913043478px;
   font-size: 23.4782608696px;
   font-weight: 500;
-  letter-spacing: 0.1666666667em;
-  color: #257341;
+  letter-spacing: 0.0925925926em;
+  color: #d32424;
 }
 
 @media only screen and (max-width: 1023px) {
