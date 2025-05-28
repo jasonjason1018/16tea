@@ -2,7 +2,7 @@
     <div class="header-wrap">
         <div class="header-logo">
 
-            <a href="/">
+            <a href="/list">
                 <img src="/assets/image/layout/logo.png" alt="">
             </a>
 
@@ -30,7 +30,7 @@
                 </div>
                 <div class="nav-content" data-scrollbar>
                     <div class="nav-links">
-                        <a href="/">首頁</a>
+                        <a href="/list">首頁</a>
                         <a href="/video">品牌影片</a>
                         <a href="/record">尋穀紀錄</a>
                         <a href="/gift">我的贈品</a>

@@ -257,8 +257,8 @@
                             <div class="score-desc"></div>
                             <div class="score-action">
                                 <!-- 挑戰失敗無法抽“立即抽”與“大獎” -->
-                                <button onclick="fbShare()" class="btn" data-share>分享至FB</button>
-                                <button onclick="lineShare()" class="btn" data-share>分享至Line</button>
+                                <button onclick="fbShare()" class="btn">分享至FB</button>
+                                <button onclick="lineShare()" class="btn">分享至Line</button>
                                 <button onclick="playAgain()" class="btn">重玩一次</button>
 {{--                                <a href="/game" class="btn">重玩一次</a>--}}
                             </div>
@@ -297,7 +297,7 @@
 </div>
 
 <!-- 音效popup -->
-<div class="popup -show" data-popup="music">
+<div class="popup {{ $audioPopup }}" data-popup="music">
     <div class="popup-wrap">
         <div class="popup-content">
             <div class="music">
@@ -306,8 +306,8 @@
             </div>
         </div>
         <div class="popup-action">
-            <button class="btn" data-popup-close data-voice="close">關閉</button>
-            <button class="btn" data-popup-close data-voice="open">開啟</button>
+            <button class="btn" data-popup-close data-voice="close" id="audio-off">關閉</button>
+            <button class="btn" data-popup-close data-voice="open" id="audio-on">開啟</button>
         </div>
     </div>
 </div>
@@ -361,7 +361,7 @@
             </div>
         </div>
         <div class="popup-action">
-            <button class="btn" data-step-btn="level" data-popup-close>下一步</button>
+            <button class="btn" data-step-btn="level" data-popup-close id="game-lose">下一步</button>
         </div>
     </div>
 </div>
@@ -448,6 +448,8 @@
 <script src="/js/lottery.js"></script>
 <script>
     var topic = 'mist';
+    var levels = @json($levels);
+    var audioStatus = @json($audioStatus);
 </script>
 </body>
 

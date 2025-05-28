@@ -21,8 +21,12 @@ function handleLottery () {
 }
 
 $('#lottery').click(function () {
-    console.log(score);
+    addRecord();
     handleLottery();
+});
+
+$('#game-lose').click(function () {
+    addRecord();
 });
 
 const shareUrl = window.location.origin;
@@ -45,6 +49,7 @@ function playAgain() {
 }
 
 function addRecord() {
+    console.log(score);
     $.ajax({
         url: '/api/score',
         method: 'POST',
@@ -56,3 +61,34 @@ function addRecord() {
         }
     });
 }
+
+$('#audio-off').click(function () {
+    const audio_status = 0;
+    addAudioLog(audio_status);
+});
+
+$('#audio-on').click(function () {
+    const audio_status = 1;
+    addAudioLog(audio_status);
+});
+
+function addAudioLog(audio_status) {
+    $.ajax({
+        url: '/api/audio_log',
+        method: 'POST',
+        data: {
+            'audio_status': audio_status,
+            'levels': levels
+        }
+    });
+}
+
+$(document).ready(function () {
+    if (audioStatus == null) {
+        return false;
+    } else if (audioStatus == 0) {
+        $('#audio-off').trigger('click');
+    } else {
+        $('#audio-on').trigger('click');
+    }
+});

@@ -25,23 +25,24 @@ Route::group(['middleware' => 'loginAuth'], function () {
     Route::get('/record', 'MemberController@record');
 
     Route::group(['prefix' => 'morning'], function () {
-        Route::view('/game', 'morning.game');
+        Route::get('/game', 'GameController@morningGame');
         Route::view('/complete', 'morning.complete');
     });
 
     Route::group(['prefix' => 'mist'], function () {
-        Route::view('/game', 'mist.game');
+        Route::get('/game', 'GameController@mistGame');
         Route::view('/complete', 'mist.complete');
     });
 
     Route::group(['prefix' => 'star'], function () {
-        Route::view('/game', 'star.game');
+        Route::get('/game', 'GameController@starGame');
         Route::view('/complete', 'star.complete');
     });
 });
-Route::view('/morning/form', 'morning.form')->middleware('loginAuth:true');
-Route::view('/mist/form', 'mist.form')->middleware('loginAuth:true');
-Route::view('/star/form', 'star.form')->middleware('loginAuth:true');
+
+Route::get('/morning/form', 'FormController@morningForm')->middleware('loginAuth:true');
+Route::get('/mist/form', 'FormController@mistForm')->middleware('loginAuth:true');
+Route::get('/star/form', 'FormController@starForm')->middleware('loginAuth:true');
 
 Route::group(['prefix' => 'login'], function () {
     Route::get('/line', 'LoginController@lineLogin');
@@ -57,6 +58,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('/form', 'FormController@insertForm');
     Route::post('/score', 'MemberController@score');
     Route::post('/16chaAdmin/login', 'LoginController@adminLogin');
+    Route::post('/audio_log', 'GameController@audioLog');
 });
 
 Route::get('captcha', function () {

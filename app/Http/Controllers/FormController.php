@@ -41,4 +41,43 @@ class FormController extends Controller
 
         return $result;
     }
+
+    public function morningForm()
+    {
+        $form = $this->getFormData();
+
+        return view('morning.form', ['form' => $form]);
+    }
+
+    public function mistForm()
+    {
+        $form = $this->getFormData();
+
+
+        return view('mist.form', ['form' => $form]);
+    }
+
+    public function starForm()
+    {
+        $form = $this->getFormData();
+
+        return view('star.form', ['form' => $form]);
+    }
+
+    private function getFormData()
+    {
+        $uid = session('user')['uid'];
+        $member = Member::where('uid', '=', $uid)->first();
+        $idMember = $member->id_member;
+
+        $form = Form::where('id_member', '=', $idMember)->first();
+
+        if ($form) {
+            $form->name = Crypt::decrypt($form->name);
+            $form->mobile = Crypt::decrypt($form->mobile);
+            $form->email = Crypt::decrypt($form->email);
+        }
+
+        return $form;
+    }
 }

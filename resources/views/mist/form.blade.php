@@ -65,19 +65,19 @@
                         <div class="form-item">
                             <div class="form-title">請輸入真實姓名</div>
                             <div class="form-val">
-                                <input type="text" id="name">
+                                <input type="text" id="name" value="{{ $form->name ?? '' }}">
                             </div>
                         </div>
                         <div class="form-item">
                             <div class="form-title">手機號碼</div>
                             <div class="form-val">
-                                <input type="tel" id="mobile">
+                                <input type="tel" id="mobile" value="{{ $form->mobile ?? '' }}">
                             </div>
                         </div>
                         <div class="form-item">
                             <div class="form-title">電子信箱</div>
                             <div class="form-val">
-                                <input type="email" class="-lg" id="email">
+                                <input type="email" class="-lg" id="email" value="{{ $form->email ?? '' }}">
                             </div>
                         </div>
                         <div class="form-item">
