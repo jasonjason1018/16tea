@@ -71,7 +71,7 @@
                     <div class="list-head">
                         <span class="-gnT">3款</span>森林地圖分別有<span class="-gnT -xlT">３</span><span
                                 class="-gnT -lgT">種大獎</span><br>
-                        等你來探索、放鬆身心，收穫驚喜！
+                        等你來探索，放鬆身心、收穫驚喜！
                     </div>
                     @foreach($games as $index => $game)
                         <div class="list-item -f0{{ $index + 1 }} {{ $game['isOpen'] }}">
@@ -133,6 +133,23 @@
 <script src="/assets/lib/ua-parser.min.js"></script>
 <script src="/assets/lib/clipboard.min.js"></script>
 <script src="/assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
+<script src="https://cdn.holmesmind.com/js/rtid.js"></script>
+<script src="https://cdn.holmesmind.com/dmp/cft/triggerTracker.js"></script>
+<script async src="https://cdn.holmesmind.com/dmp/cft/tracker.js"></script>
+
+<script>
+    clickforce_rtid("9766001");
+    /* Website track (tracker.js) - B.I.DMP By ClickForce */
+    window.cft = window.cft || function () {
+        (cft.q = cft.q || []).push([].slice.call(arguments));
+    };
+    function clickForceMyyCFT() {
+        cft("setSiteId", "CF-220600115987");
+        cft("setViewPercentage");
+    }
+    ;
+    clickForceDelayLoading();
+</script>
 
 <script src="/assets/js/main.min.js"></script>
 

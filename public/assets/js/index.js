@@ -13,7 +13,7 @@
     ease: 'power1.out',
     onComplete: () => {
       setTimeout(() => {
-        window.location.href = './list.html';
+        window.location.href = '/list';
       }, 20000);
     }
   });

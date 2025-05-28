@@ -63,7 +63,7 @@
                     <div class="intro-wrap">
                         <div class="intro-tit">星語森林</div>
                         <div class="intro-txt">
-                            晨夜幕低垂，柔和月光灑滿林間<br>
+                            夜幕低垂，柔和月光灑滿林間<br>
                             輕柔夜風帶來靜謐療癒<br>
                             這裡藏有放鬆身心、舒緩好眠的食穀<br>
                             一起來探索吧！
@@ -103,9 +103,9 @@
                                     <img class="task-pic" src="/assets/image/map3/1.png" alt="">
                                     <div class="task-txt">
                                         <div class="task-name">決明子</div>
-                                        <div class="task-desc">舒緩疲憊視線，讓眼神亮回來</div>
+                                        <div class="task-desc">舒緩疲憊視線，讓眼神亮回來 </div>
                                     </div>
-                                    <div class="task-num"></div>
+                                    <div class="task-num" data-task-num="cassiaSeed"></div>
                                 </div>
                                 <div class="task-item">
                                     <img class="task-pic" src="/assets/image/map3/2.png" alt="">
@@ -113,7 +113,7 @@
                                         <div class="task-name">黍米</div>
                                         <div class="task-desc">哄睡它在行，睡好也睡飽</div>
                                     </div>
-                                    <div class="task-num"></div>
+                                    <div class="task-num" data-task-num="millet"></div>
                                 </div>
                                 <div class="task-item">
                                     <img class="task-pic" src="/assets/image/map3/3.png" alt="">
@@ -121,7 +121,7 @@
                                         <div class="task-name">玄米</div>
                                         <div class="task-desc">天然情緒紓緩劑，心情鬆了身體也鬆了</div>
                                     </div>
-                                    <div class="task-num"></div>
+                                    <div class="task-num" data-task-num="brownRice"></div>
                                 </div>
                                 <div class="task-item">
                                     <img class="task-pic" src="/assets/image/map3/4.png" alt="">
@@ -129,7 +129,7 @@
                                         <div class="task-name">枇杷葉</div>
                                         <div class="task-desc">喉嚨不卡卡，好眠不受擾</div>
                                     </div>
-                                    <div class="task-num"></div>
+                                    <div class="task-num" data-task-num="loquatLeaf"></div>
                                 </div>
                                 <div class="task-item">
                                     <img class="task-pic" src="/assets/image/map3/5.png" alt="">
@@ -137,7 +137,7 @@
                                         <div class="task-name">粟米</div>
                                         <div class="task-desc">舒緩緊繃情緒，不知不覺自然<br>登出</div>
                                     </div>
-                                    <div class="task-num"></div>
+                                    <div class="task-num" data-task-num="corn"></div>
                                 </div>
                             </div>
                             <div class="task-action">
@@ -247,7 +247,7 @@
                                 <button onclick="playAgain()" class="btn">重玩一次</button>
 {{--                                <a href="./game.html" class="btn">重玩一次</a>--}}
                             </div>
-                            <div class="score-note" data-share>完成分享才能抽大獎喔！</div>
+                            <div class="score-note" data-share>分享成績&填寫資料，事後抽大獎喔 !</div>
                         </div>
                     </div>
                 </div>
@@ -311,9 +311,9 @@
                     <span>個食穀</span>
                 </div>
                 <div class="result-txt">
-                    恭喜你尋穀成功！<br>
-                    立即抽一瓶零咖啡因十六茶<br>
-                    今晚伴你安心好眠!
+                    恭喜獲得立即抽一瓶<br>
+                    零咖啡因十六茶的機會，<br>
+                    今晚伴你安心好眠！
                 </div>
             </div>
         </div>
@@ -402,6 +402,23 @@
 <script src="/assets/lib/ua-parser.min.js"></script>
 <script src="/assets/lib/clipboard.min.js"></script>
 <script src="/assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
+<script src="https://cdn.holmesmind.com/js/rtid.js"></script>
+<script src="https://cdn.holmesmind.com/dmp/cft/triggerTracker.js"></script>
+<script async src="https://cdn.holmesmind.com/dmp/cft/tracker.js"></script>
+
+<script>
+    clickforce_rtid("9766001");
+    /* Website track (tracker.js) - B.I.DMP By ClickForce */
+    window.cft = window.cft || function () {
+        (cft.q = cft.q || []).push([].slice.call(arguments));
+    };
+    function clickForceMyyCFT() {
+        cft("setSiteId", "CF-220600115987");
+        cft("setViewPercentage");
+    }
+    ;
+    clickForceDelayLoading();
+</script>
 
 <script src="/assets/lib/gsap.min.js"></script>
 <script src="/assets/lib/pixi.min.js"></script>
@@ -427,7 +444,8 @@
     var mapNum = 3;
 </script>
 
-<script src="/assets/js/game.min.js"></script>
+{{--<script src="/assets/js/game.min.js"></script>--}}
+<script src="/assets/js/game.js?v=0527"></script>
 <script src="/js/lottery.js"></script>
 <script>
     var topic = 'star';

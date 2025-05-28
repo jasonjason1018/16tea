@@ -15,7 +15,6 @@ class LotteryController extends Controller
 {
     public function lottery()
     {
-        session()->put('complete_game', true);
         $result = [
             'isWin' => false,
             'serial_number' => null

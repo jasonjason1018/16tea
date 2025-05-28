@@ -51,6 +51,7 @@ class MemberController extends Controller
 
     public function score(Request $request)
     {
+        session()->put('complete_game', true);
         $requestData = $request->all();
 
         $score = $requestData['score'];

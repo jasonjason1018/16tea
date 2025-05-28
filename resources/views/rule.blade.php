@@ -69,11 +69,10 @@
                         <div class="rule-tit">活動內容</div>
                         <div class="rule-val">
                             <b>立即抽</b><br>
-                            本活動網站共有三種主題森林依序開啟，限時30秒內完成任一森林指定收集之食穀種類及數量，即可獲得立即抽十六茶經典無糖
-                            PET 530ml 乙瓶機會乙次，單一帳號每日不限立即抽次數。<br>
+                            本活動網站共有三種主題森林依序開啟，限時30秒內收集任一森林指定食穀數量，並獲得S級挑戰成績，即可獲得立即抽十六茶經典無糖 PET 530ml 乙瓶機會乙次，單一帳號每日不限立即抽次數。<br>
                             <br>
                             <b>三種大獎事後抽</b><br>
-                            三座主題森林分別有三種對應大獎，限時30秒內完成任一森林指定任務後，分享最終成績並登記資料，即可獲得事後抽大獎資格。單一帳號不限參加次數，最多可累積三種大獎事後抽資格。
+                            三座主題森林分別有三種對應大獎，凡玩任一森林尋穀任務後，分享最終成績並登記資料，即可獲得事後抽大獎資格。單一帳號不限參加次數，最多可累積三種大獎事後抽資格。
                             <ol>
                                 <li>
                                     <b>晨光森林大獎</b><br>
@@ -235,7 +234,23 @@
 <script src="./assets/lib/ua-parser.min.js"></script>
 <script src="./assets/lib/clipboard.min.js"></script>
 <script src="./assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
+<script src="https://cdn.holmesmind.com/js/rtid.js"></script>
+<script src="https://cdn.holmesmind.com/dmp/cft/triggerTracker.js"></script>
+<script async src="https://cdn.holmesmind.com/dmp/cft/tracker.js"></script>
 
+<script>
+    clickforce_rtid("9766001");
+    /* Website track (tracker.js) - B.I.DMP By ClickForce */
+    window.cft = window.cft || function () {
+        (cft.q = cft.q || []).push([].slice.call(arguments));
+    };
+    function clickForceMyyCFT() {
+        cft("setSiteId", "CF-220600115987");
+        cft("setViewPercentage");
+    }
+    ;
+    clickForceDelayLoading();
+</script>
 
 <script src="./assets/js/main.min.js"></script>
 

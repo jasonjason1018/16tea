@@ -69,7 +69,7 @@
                         <br>
                         <br>
                     </p>
-                    <p>完成指定食穀收集</p>
+                    <p>收集指定食穀種類及數量</p>
                     <p>即可抽一瓶由十六種食穀製成的</p>
                     <p>零咖啡因十六茶</p>
                     <p>
@@ -120,6 +120,24 @@
 <script src="/assets/lib/ua-parser.min.js"></script>
 <script src="/assets/lib/clipboard.min.js"></script>
 <script src="/assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
+<script src="https://cdn.holmesmind.com/js/rtid.js"></script>
+<script src="https://cdn.holmesmind.com/dmp/cft/triggerTracker.js"></script>
+<script async src="https://cdn.holmesmind.com/dmp/cft/tracker.js"></script>
+
+<script>
+    clickforce_rtid("9766001");
+    /* Website track (tracker.js) - B.I.DMP By ClickForce */
+    window.cft = window.cft || function () {
+        (cft.q = cft.q || []).push([].slice.call(arguments));
+    };
+    function clickForceMyyCFT() {
+        cft("setSiteId", "CF-220600115987");
+        cft("setViewPercentage");
+    }
+    ;
+    clickForceDelayLoading();
+</script>
+
 
 <script src="/assets/lib/gsap.min.js"></script>
 

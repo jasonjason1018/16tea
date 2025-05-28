@@ -61,7 +61,7 @@
             <div class="card">
                 <div class="card-wrap">
                     <div class="form">
-                        <div class="form-head">感謝分享！請填寫抽獎資料</div>
+                        <div class="form-head">感謝分享！<br>請填寫資料以利得獎通知</div>
                         <div class="form-item">
                             <div class="form-title">請輸入真實姓名</div>
                             <div class="form-val">
@@ -97,7 +97,7 @@
                             <input type="checkbox" name="" id="agree">
                             <label for="agree">
                             <span>
-                                我已了解定<a href="/rule#personal" target="_blank" rel="noopener noreferrer">同意個人資料搜集將關規定</a>，且已詳知活動辦法並同意遵守規範若填寫資料錯誤願意放棄得獎資格
+                                我已了解並<a href="/rule#personal" target="_blank" rel="noopener noreferrer">同意個人資料蒐集相關規定</a>，且詳知<a href="/rule" target="_blank" rel="noopener noreferrer">活動辦法</a>並同意遵守規範；若資料填寫錯誤願意放棄得獎資格。
                             </span>
                             </label>
                         </div>
@@ -105,7 +105,7 @@
                             <!-- 可送出請移除disabled屬性 -->
                             <!-- <button class="btn" disabled><span>確認送出</span></button> -->
 {{--                            <a href="complete.blade.php" class="btn"><span>確認送出</span></a>--}}
-                            <button class="btn" id="form-btn"><span>確認送出</span></button>
+                            <button class="btn" id="form-btn" data-send><span>確認送出</span></button>
                         </div>
                     </div>
                 </div>
@@ -144,6 +144,23 @@
 <script src="/assets/lib/ua-parser.min.js"></script>
 <script src="/assets/lib/clipboard.min.js"></script>
 <script src="/assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
+<script src="https://cdn.holmesmind.com/js/rtid.js"></script>
+<script src="https://cdn.holmesmind.com/dmp/cft/triggerTracker.js"></script>
+<script async src="https://cdn.holmesmind.com/dmp/cft/tracker.js"></script>
+
+<script>
+    clickforce_rtid("9766001");
+    /* Website track (tracker.js) - B.I.DMP By ClickForce */
+    window.cft = window.cft || function () {
+        (cft.q = cft.q || []).push([].slice.call(arguments));
+    };
+    function clickForceMyyCFT() {
+        cft("setSiteId", "CF-220600115987");
+        cft("setViewPercentage");
+    }
+    ;
+    clickForceDelayLoading();
+</script>
 
 <script src="/assets/js/main.min.js"></script>
 <script src="/js/form.js"></script>
@@ -156,6 +173,21 @@
         captcha.src = '/captcha/default?' + Date.now();
     }
 </script>
+<script>
+    function cFTriggerEventCFgeneratelead_Button() {
+        console.log('send');
+        clickforce_rtid("9766002");
+        cft("send", "event", {
+            action: "CFgeneratelead_Button",
+            category: "generatelead",
+            label: "Button"
+        });
+    }
+    ;
+    cFTriggerEventCFgeneratelead_Button();
+    $('[data-send]').on('click.send', cFTriggerEventCFgeneratelead_Button);
+</script>
+
 </body>
 
 </html>

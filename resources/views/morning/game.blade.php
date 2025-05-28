@@ -109,7 +109,7 @@
                                         <div class="task-name">紅豆</div>
                                         <div class="task-desc">不靠戀愛氣色好，靠紅豆剛剛好</div>
                                     </div>
-                                    <div class="task-num"></div>
+                                    <div class="task-num" data-task-num="redBean"></div>
                                 </div>
                                 <div class="task-item">
                                     <img class="task-pic" src="/assets/image/map1/2.png" alt="">
@@ -117,7 +117,7 @@
                                         <div class="task-name">桑葉</div>
                                         <div class="task-desc">痘走元氣來，找回好活力</div>
                                     </div>
-                                    <div class="task-num"></div>
+                                    <div class="task-num" data-task-num="mulberryLeaf"></div>
                                 </div>
                                 <div class="task-item">
                                     <img class="task-pic" src="/assets/image/map1/3.png" alt="">
@@ -125,7 +125,7 @@
                                         <div class="task-name">薏仁</div>
                                         <div class="task-desc">白得自然，靠薏仁養出來</div>
                                     </div>
-                                    <div class="task-num"></div>
+                                    <div class="task-num" data-task-num="jobsTears"></div>
                                 </div>
                                 <div class="task-item">
                                     <img class="task-pic" src="/assets/image/map1/4.png" alt="">
@@ -133,7 +133,7 @@
                                         <div class="task-name">紅棗</div>
                                         <div class="task-desc">棗回好氣色，自帶美顏濾鏡</div>
                                     </div>
-                                    <div class="task-num"></div>
+                                    <div class="task-num" data-task-num="redDate"></div>
                                 </div>
                                 <div class="task-item">
                                     <img class="task-pic" src="/assets/image/map1/5.png" alt="">
@@ -141,7 +141,7 @@
                                         <div class="task-name">黑豆</div>
                                         <div class="task-desc">吃豆不會老，元氣滿點不顯老</div>
                                     </div>
-                                    <div class="task-num"></div>
+                                    <div class="task-num" data-task-num="blackBean"></div>
                                 </div>
                             </div>
                             <div class="task-action">
@@ -251,7 +251,7 @@
                                 <button onclick="playAgain()" class="btn">重玩一次</button>
 {{--                                <a href="/morning/game" class="btn">重玩一次</a>--}}
                             </div>
-                            <div class="score-note" data-share>完成分享才能抽大獎喔！</div>
+                            <div class="score-note" data-share>分享成績&填寫資料，事後抽大獎喔 !</div>
                         </div>
                     </div>
                 </div>
@@ -315,9 +315,9 @@
                     <span>個食穀</span>
                 </div>
                 <div class="result-txt">
-                    恭喜你尋穀成功！<br>
-                    立即抽一瓶零咖啡因十六茶<br>
-                    今晚伴你安心好眠!
+                    恭喜獲得立即抽一瓶<br>
+                    零咖啡因十六茶的機會，<br>
+                    今晚伴你安心好眠！
                 </div>
             </div>
         </div>
@@ -406,6 +406,23 @@
 <script src="/assets/lib/ua-parser.min.js"></script>
 <script src="/assets/lib/clipboard.min.js"></script>
 <script src="/assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
+<script src="https://cdn.holmesmind.com/js/rtid.js"></script>
+<script src="https://cdn.holmesmind.com/dmp/cft/triggerTracker.js"></script>
+<script async src="https://cdn.holmesmind.com/dmp/cft/tracker.js"></script>
+
+<script>
+    clickforce_rtid("9766001");
+    /* Website track (tracker.js) - B.I.DMP By ClickForce */
+    window.cft = window.cft || function () {
+        (cft.q = cft.q || []).push([].slice.call(arguments));
+    };
+    function clickForceMyyCFT() {
+        cft("setSiteId", "CF-220600115987");
+        cft("setViewPercentage");
+    }
+    ;
+    clickForceDelayLoading();
+</script>
 
 <script src="/assets/lib/gsap.min.js"></script>
 <script src="/assets/lib/pixi.min.js"></script>
@@ -431,7 +448,8 @@
     var mapNum = 1;
 </script>
 
-<script src="/assets/js/game.min.js"></script>
+{{--<script src="/assets/js/game.min.js"></script>--}}
+<script src="/assets/js/game.js?v=0527"></script>
 <script src="/js/lottery.js"></script>
 <script>
     var topic = 'morning';

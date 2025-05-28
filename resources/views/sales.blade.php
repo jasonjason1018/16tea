@@ -58,7 +58,7 @@
 
     <main class="main -scroll">
         <div class="main-wrap">
-            <div class="main-tit">十六茶購買通路</div>
+            <div class="main-tit"><b>十六茶購買通路</b></div>
             <div class="main-content" data-scrollbar>
                 <div class="sales">
                     <div class="sales-group">
@@ -142,10 +142,25 @@
 <script src="./assets/lib/ua-parser.min.js"></script>
 <script src="./assets/lib/clipboard.min.js"></script>
 <script src="./assets/lib/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
+<script src="https://cdn.holmesmind.com/js/rtid.js"></script>
+<script src="https://cdn.holmesmind.com/dmp/cft/triggerTracker.js"></script>
+<script async src="https://cdn.holmesmind.com/dmp/cft/tracker.js"></script>
 
+<script>
+    clickforce_rtid("9766001");
+    /* Website track (tracker.js) - B.I.DMP By ClickForce */
+    window.cft = window.cft || function () {
+        (cft.q = cft.q || []).push([].slice.call(arguments));
+    };
+    function clickForceMyyCFT() {
+        cft("setSiteId", "CF-220600115987");
+        cft("setViewPercentage");
+    }
+    ;
+    clickForceDelayLoading();
+</script>
 
 <script src="./assets/js/main.min.js"></script>
-
 
 </body>
 
