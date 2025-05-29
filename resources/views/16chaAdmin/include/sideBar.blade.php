@@ -23,10 +23,22 @@
             <span>中奬人員名單</span>
         </a>
     </li>
-    <li class="nav-item {{ request()->is('16chaAdmin/form*') ? 'active' : '' }}">
-        <a class="nav-link" href="/16chaAdmin/form">
+    <li class="nav-item {{ request()->is('16chaAdmin/form/morning*') ? 'active' : '' }}">
+        <a class="nav-link" href="/16chaAdmin/form/morning">
             <i class="fas fa-circle"></i>
-            <span>抽獎名單</span>
+            <span>晨光森林-抽獎名單</span>
+        </a>
+    </li>
+    <li class="nav-item {{ request()->is('16chaAdmin/form/mist*') ? 'active' : '' }}">
+        <a class="nav-link" href="/16chaAdmin/form/mist">
+            <i class="fas fa-circle"></i>
+            <span>霧影森林-抽獎名單</span>
+        </a>
+    </li>
+    <li class="nav-item {{ request()->is('16chaAdmin/form/star*') ? 'active' : '' }}">
+        <a class="nav-link" href="/16chaAdmin/form/star">
+            <i class="fas fa-circle"></i>
+            <span>星語森林-抽獎名單</span>
         </a>
     </li>
     <li class="nav-item ">

@@ -69,7 +69,7 @@ Route::group(['prefix' => '16chaAdmin'], function () {
     Route::view('/', '16chaAdmin.login');
     Route::group(['middleware' => 'adminAuth'], function() {
         Route::get('/member', 'AdminController@member');
-        Route::get('/form', 'AdminController@form');
+        Route::get('/form/{topic}', 'AdminController@form');
         Route::get('/winner', 'AdminController@winner');
     });
     Route::get('/logout', 'AdminController@logout');

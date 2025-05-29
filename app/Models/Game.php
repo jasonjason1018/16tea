@@ -16,4 +16,10 @@ class Game extends Model
         'tree_image',
         'style'
     ];
+
+    const GAME_LANG_TW = [
+        'morning' => '晨光森林',
+        'mist' => '霧影森林',
+        'star' => '星語森林'
+    ];
 }

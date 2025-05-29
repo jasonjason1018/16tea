@@ -438,7 +438,7 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-                <h1 class="h3 my-2 text-gray-800">抽獎名單<small class="ml-2 text-secondary"></small></h1>
+                <h1 class="h3 my-2 text-gray-800">{{ $pageTitle }}-抽獎名單<small class="ml-2 text-secondary"></small></h1>
                 <div>
                     <div class="card">
                         <div class="card-body">

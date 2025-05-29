@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Form;
+use App\Models\Game;
 use App\Models\Member;
 use App\Models\MemberPrize;
 use Carbon\Carbon;
@@ -56,9 +57,13 @@ class AdminController extends Controller
         return view('16chaAdmin.winner', ['memberPrizes' => $memberPrizes]);
     }
 
-    public function form()
+    public function form($topic)
     {
-        $forms = Form::select('id_form', 'name', 'mobile', 'email', 'created_at')->paginate(self::PAGE_LIMIT);
+        $pageTitle = Game::GAME_LANG_TW[$topic];
+
+        $forms = Form::select('id_form', 'name', 'mobile', 'email', 'created_at')
+            ->where('topic', '=', $topic)
+            ->paginate(self::PAGE_LIMIT);
 
         foreach ($forms as $form) {
             $form->name = Crypt::decrypt($form->name);
@@ -66,7 +71,7 @@ class AdminController extends Controller
             $form->email = Crypt::decrypt($form->email);
         }
 
-        return view('16chaAdmin.form', ['forms' => $forms]);
+        return view('16chaAdmin.form', ['forms' => $forms, 'pageTitle' => $pageTitle]);
     }
 
     public function logout()
