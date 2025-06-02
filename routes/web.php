@@ -59,6 +59,8 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('/score', 'MemberController@score');
     Route::post('/16chaAdmin/login', 'LoginController@adminLogin');
     Route::post('/audio_log', 'GameController@audioLog');
+    Route::post('/tag', 'MemberController@tag');
+    Route::get('/analysis', 'AdminController@getAnalysis');
 });
 
 Route::get('captcha', function () {
@@ -71,6 +73,9 @@ Route::group(['prefix' => '16chaAdmin'], function () {
         Route::get('/member', 'AdminController@member');
         Route::get('/form/{topic}', 'AdminController@form');
         Route::get('/winner', 'AdminController@winner');
+        Route::get('/analysis', 'AdminController@analysis');
     });
     Route::get('/logout', 'AdminController@logout');
 });
+
+Route::get('/share/{topic}/{scoreLevel}', 'ShareController@share');

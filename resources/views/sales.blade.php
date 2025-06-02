@@ -11,6 +11,15 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
+    <meta property="og:title" content="挑戰限時尋16食穀，三種大獎任你抽！">
+    <meta property="og:site_name" content="十六茶 療癒之森">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="限時尋穀十六茶免費送！分享挑戰成績，雲品溫泉住宿等三種大獎任你抽">
+    <meta property="og:type" content="website">
+    <link rel="image_src" href="/assets/image/share-img.jpg">
+    <meta property="og:image" content="/assets/image/share-img.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
 
 
     <link rel="manifest" href="./site.json" crossorigin="use-credentials">
@@ -98,10 +107,10 @@
                     <div class="sales-group">
                         <div class="sales-head">線上通路</div>
                         <div class="sales-action">
-                            <a href="https://bit.ly/3PmsQKm" target="_blank" rel="noopener noreferrer">
+                            <a href="https://bit.ly/3PmsQKm" target="_blank" rel="noopener noreferrer" onclick="atag('click','sales channel','pchome24')">
                                 <img src="./assets/image/other/pchome.png" alt="">
                             </a>
-                            <a href="https://bit.ly/3Oic921" target="_blank" rel="noopener noreferrer">
+                            <a href="https://bit.ly/3Oic921" target="_blank" rel="noopener noreferrer" onclick="atag('click','sales channel','momo')">
                                 <img src="./assets/image/other/momo.png" alt="">
                             </a>
                         </div>
@@ -132,7 +141,7 @@
             <div class="browser-item">進入網頁</div>
         </div>
         <div class="browser-action">
-            <button class="btn -md" data-copy><span>複製網址</span></button>
+            <button class="btn -md" data-copy onclick="atag('click','popup','copy link')"><span>複製網址</span></button>
         </div>
     </div>
 </div>

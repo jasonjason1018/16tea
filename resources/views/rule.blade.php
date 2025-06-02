@@ -11,6 +11,15 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
+    <meta property="og:title" content="挑戰限時尋16食穀，三種大獎任你抽！">
+    <meta property="og:site_name" content="十六茶 療癒之森">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="限時尋穀十六茶免費送！分享挑戰成績，雲品溫泉住宿等三種大獎任你抽">
+    <meta property="og:type" content="website">
+    <link rel="image_src" href="/assets/image/share-img.jpg">
+    <meta property="og:image" content="/assets/image/share-img.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
 
 
     <link rel="manifest" href="./site.json" crossorigin="use-credentials">
@@ -84,7 +93,7 @@
                                 </li>
                                 <li>
                                     <b>星語森林大獎</b><br>
-                                    【雲品假期】一泊二食尊榮湖景2人房住宿券，共乙張（總價值NT$18,888元），此票券可兌換折抵平日雲品尊榮湖景房乙晚（兩人一室），含早/晚餐兩人份及酒店設施免費使用，細節依實際票券內容為準。
+                                    【雲品溫泉酒店】一泊二食尊榮湖景2人房 乙名住宿券，共乙張（總價值NT$18,888元），此票券可兌換折抵平日雲品尊榮湖景房乙晚（兩人一室），含早/晚餐兩人份及酒店設施免費使用，細節依實際票券內容為準。
                                 </li>
                             </ol>
                         </div>
@@ -223,7 +232,7 @@
             <div class="browser-item">進入網頁</div>
         </div>
         <div class="browser-action">
-            <button class="btn -md" data-copy><span>複製網址</span></button>
+            <button class="btn -md" data-copy onclick="atag('click','popup','copy link')"><span>複製網址</span></button>
         </div>
     </div>
 </div>

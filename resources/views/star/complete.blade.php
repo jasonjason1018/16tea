@@ -11,6 +11,15 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
+    <meta property="og:title" content="挑戰限時尋16食穀，三種大獎任你抽！">
+    <meta property="og:site_name" content="十六茶 療癒之森">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="限時尋穀十六茶免費送！分享挑戰成績，雲品溫泉住宿等三種大獎任你抽">
+    <meta property="og:type" content="website">
+    <link rel="image_src" href="/assets/image/share-img.jpg">
+    <meta property="og:image" content="/assets/image/share-img.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
 
 
     <link rel="manifest" href="./../site.json" crossorigin="use-credentials">
@@ -61,17 +70,20 @@
             <div class="card">
                 <div class="card-wrap">
                     <div class="complete">
-                        <div class="complete-tit">感謝您的填寫</div>
+                        <div class="complete-tit">
+                            感謝您的填寫<br>
+                            您已符合事後抽大獎資格！
+                        </div>
                         <div class="complete-txt">
-                            您已符合<br>
-                            “【雲品假期】一泊二食尊榮湖景2人房”<br>
-                            得獎名單將於2025/7/17(四)公布於本網站
+                            「雲品溫泉酒店 尊榮湖景2人房」<br>
+                            得獎名單將於2025/7/17(四)<br>
+                            公布於本網站。
                             <div class="complete-pic">
                                 <img src="/assets/image/winners/03.jpg" alt="">
                             </div>
                         </div>
                         <div class="complete-action">
-                            <a href="/list" class="btn">回首頁</a>
+                            <a href="/list" class="btn" onclick="atag('click','thank u page','done login')">回首頁</a>
                         </div>
                     </div>
                 </div>
@@ -100,7 +112,7 @@
             <div class="browser-item">進入網頁</div>
         </div>
         <div class="browser-action">
-            <button class="btn -md" data-copy><span>複製網址</span></button>
+            <button class="btn -md" data-copy onclick="atag('click','popup','copy link')"><span>複製網址</span></button>
         </div>
     </div>
 </div>

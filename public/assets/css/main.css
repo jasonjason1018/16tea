@@ -285,11 +285,11 @@ body.-menuOpen {
   overflow: hidden;
 }
 
-.header-btn[data-voice=on] img:nth-child(2) {
+.header-btn[data-voice=on] img:nth-child(1) {
   display: none;
 }
 
-.header-btn[data-voice=off] img:nth-child(1) {
+.header-btn[data-voice=off] img:nth-child(2) {
   display: none;
 }
 

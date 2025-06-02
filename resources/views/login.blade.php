@@ -28,6 +28,16 @@
     <link rel="stylesheet" href="/assets/css/login.min.css">
 
     <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="挑戰限時尋16食穀，三種大獎任你抽！">
+    <meta property="og:site_name" content="十六茶 療癒之森">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="限時尋穀十六茶免費送！分享挑戰成績，雲品溫泉住宿等三種大獎任你抽">
+    <meta property="og:type" content="website">
+    <link rel="image_src" href="/assets/image/share-img.jpg">
+    <meta property="og:image" content="/assets/image/share-img.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GNB1EGND17"></script>
@@ -69,8 +79,8 @@
                     請先登入你的帳號
                 </div>
                 <div class="login-action">
-                    <button class="btn -fb">Facebook 登入</button>
-                    <button class="btn -line">LINE 登入</button>
+                    <button class="btn -fb" onclick="atag('click','front page','fb_sign in')">Facebook 登入</button>
+                    <button class="btn -line" onclick="atag('click','front page','line_sign in')">LINE 登入</button>
                 </div>
             </div>
         </div>
@@ -97,7 +107,7 @@
             <div class="browser-item">進入網頁</div>
         </div>
         <div class="browser-action">
-            <button class="btn -md" data-copy><span>複製網址</span></button>
+            <button class="btn -md" data-copy onclick="atag('click','popup','copy link')"><span>複製網址</span></button>
         </div>
     </div>
 </div>

@@ -7,7 +7,12 @@
             </a>
 
         </div>
-
+        @if (in_array(request()->path(), ['morning/game', 'mist/game', 'star/game']))
+            <button class="header-btn" data-voice="on">
+                <img src="/assets/image/layout/voice-on.svg" alt="">
+                <img src="/assets/image/layout/voice-off.svg" alt="">
+            </button>
+        @endif
         <button class="header-btn" data-burger>
             <img src="/assets/image/layout/menu.svg" alt="">
         </button>
@@ -30,31 +35,31 @@
                 </div>
                 <div class="nav-content" data-scrollbar>
                     <div class="nav-links">
-                        <a href="/list">首頁</a>
-                        <a href="/video">品牌影片</a>
-                        <a href="/record">尋穀紀錄</a>
-                        <a href="/gift">我的贈品</a>
-                        <a href="/rule">活動辦法</a>
-                        <a href="/winners">得獎名單</a>
-                        <a href="/sales">十六茶通路</a>
+                        <a href="/list" onclick="atag('click','MENU','back home')">首頁</a>
+                        <a href="/video" onclick="atag('click','MENU','CF page')">品牌影片</a>
+                        <a href="/record" onclick="atag('click','MENU','Record')">尋穀紀錄</a>
+                        <a href="/gift" onclick="atag('click','MENU','my prize')">我的贈品</a>
+                        <a href="/rule" onclick="atag('click','MENU','method')">活動辦法</a>
+                        <a href="/winners" onclick="atag('click','MENU','Winnerlist')">得獎名單</a>
+                        <a href="/sales" onclick="atag('click','MENU','sales channel')">十六茶通路</a>
+
                     </div>
                     <div class="nav-social">
-                        <a href="https://www.facebook.com/tw16asahi" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/tw16asahi" target="_blank" rel="noopener noreferrer" onclick="atag('click','MENU','fb')">
                             <img src="/assets/image/icon/facebook.webp" alt="">
                         </a>
-                        <a href="https://www.instagram.com/16cha_tw/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/16cha_tw/" target="_blank" rel="noopener noreferrer" onclick="atag('click','MENU','ig')">
                             <img src="/assets/image/icon/instagram.webp" alt="">
                         </a>
-                        <a href="https://asahisoftdrinks.com.tw/16cha/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://asahisoftdrinks.com.tw/16cha/" target="_blank" rel="noopener noreferrer" onclick="atag('click','MENU','Official site')">
                             <img src="/assets/image/icon/16cha.webp" alt="">
                         </a>
                     </div>
                     <div class="nav-logout">
                         @if (session()->has('user'))
-{{--                            <button class="btn -lg" id="logout-button">登出</button>--}}
-                            <a href="/logout" class="btn -lg">登出</a>
+                            <a href="/logout" class="btn -lg" onclick="atag('click','MENU','sign out')">登出</a>
                         @else
-                            <a href="/login" class="btn -lg">馬上登入</a>
+                            <a href="/login" class="btn -lg" onclick="atag('click','MENU','sign in')">馬上登入</a>
                         @endif
                     </div>
                 </div>
@@ -63,3 +68,16 @@
         </div>
     </div>
 </header>
+<script>
+    function atag(action, pageName, label) {
+        $.ajax({
+            url: '/api/tag',
+            type: 'POST',
+            data: {
+                action: action,
+                page_name: pageName,
+                label: label
+            }
+        })
+    }
+</script>

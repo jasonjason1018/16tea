@@ -15,6 +15,7 @@ class VerifyCsrfToken extends Middleware
         '/api/form',
         '/api/score',
         '/api/16chaAdmin/login',
-        '/api/audio_log'
+        '/api/audio_log',
+        '/api/tag'
     ];
 }

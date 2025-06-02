@@ -11,6 +11,15 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
+    <meta property="og:title" content="挑戰限時尋16食穀，三種大獎任你抽！">
+    <meta property="og:site_name" content="十六茶 療癒之森">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="限時尋穀十六茶免費送！分享挑戰成績，雲品溫泉住宿等三種大獎任你抽">
+    <meta property="og:type" content="website">
+    <link rel="image_src" href="/assets/image/share-img.jpg">
+    <meta property="og:image" content="/assets/image/share-img.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
 
 
     <link rel="manifest" href="/site.json" crossorigin="use-credentials">
@@ -103,8 +112,7 @@
                         </div>
                         <div class="form-action">
                             <!-- 可送出請移除disabled屬性 -->
-                            <button class="btn" id="form-btn" data-send><span>確認送出</span></button>
-{{--                            <a href="complete.blade.php" id="form-btn" class="btn"><span>確認送出</span></a>--}}
+                            <button class="btn" id="form-btn" data-send onclick="atag('click','login page','send')"><span>確認送出</span></button>
                         </div>
                     </div>
                 </div>
@@ -133,7 +141,7 @@
             <div class="browser-item">進入網頁</div>
         </div>
         <div class="browser-action">
-            <button class="btn -md" data-copy><span>複製網址</span></button>
+            <button class="btn -md" data-copy onclick="atag('click','popup','copy link')"><span>複製網址</span></button>
         </div>
     </div>
 </div>

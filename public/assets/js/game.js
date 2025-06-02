@@ -1,9 +1,21 @@
 (async function () {
   // 音樂
   const audio = document.querySelector('#audio');
-  $('[data-voice]').on('click', function () {
-    if ($(this).data('voice') === 'open') audio.play();
-    introTl.play();
+  function toggleMusic() {
+    var state = $('[data-voice]').attr('data-voice');
+    if (state === 'off') {
+      audio.play();
+    } else if (state === 'on') {
+      audio.pause();
+    }
+  }
+  $('[data-voice]').on('click.voice', function () {
+    var state = $(this).attr('data-voice');
+    $('[data-voice]').attr('data-voice', state === 'on' ? 'off' : 'on');
+    toggleMusic();
+    if ($(this).closest('.popup').length > 0) {
+      introTl.play();
+    }
   });
 
   // 取得隨機目標數量(1-2個)
@@ -254,7 +266,12 @@
         duration: 0.1
       }).to(container, {
         x: x + width * 0.5,
-        duration: 0.1
+        duration: 0.1,
+        onComplete: () => {
+          setTimeout(() => {
+            $('.game-stage').removeClass('-coffee');
+          }, 500);
+        }
       });
     }
   };
@@ -390,6 +407,7 @@
       txt = '還有好多食穀沒找到耶~\n再試試吧 !';
     }
     ;
+    scoreLevel = level;
     $('.score-level').addClass(`-${level}`).find('div').text(level);
     $('.score-desc').text(txt);
   }

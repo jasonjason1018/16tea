@@ -11,6 +11,15 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
+    <meta property="og:title" content="挑戰限時尋16食穀，三種大獎任你抽！">
+    <meta property="og:site_name" content="十六茶 療癒之森">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="限時尋穀十六茶免費送！分享挑戰成績，雲品溫泉住宿等三種大獎任你抽">
+    <meta property="og:type" content="website">
+    <link rel="image_src" href="/assets/image/share-img.jpg">
+    <meta property="og:image" content="/assets/image/share-img.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
 
 
     <link rel="manifest" href="./../site.json" crossorigin="use-credentials">
@@ -87,7 +96,7 @@
                             <img src="/assets/image/other/16/16.png" class="intro-item" alt="">
                         </div>
                     </div>
-                    <button class="intro-btn" data-step-btn="task"></button>
+                    <button class="intro-btn" data-step-btn="task" onclick="atag('click','mist page','enter m')"></button>
                 </div>
             </div>
             <div class="step-item" data-step="task">
@@ -149,7 +158,7 @@
                                 </div>
                             </div>
                             <div class="task-action">
-                                <button class="btn" data-step-btn="instruction">開始挑戰</button>
+                                <button class="btn" data-step-btn="instruction" onclick="atag('click','mist page','go')">開始挑戰</button>
                             </div>
                         </div>
                     </div>
@@ -260,9 +269,11 @@
                                 <button onclick="fbShare()" class="btn">分享至FB</button>
                                 <button onclick="lineShare()" class="btn">分享至Line</button>
                                 <button onclick="playAgain()" class="btn">重玩一次</button>
-{{--                                <a href="/game" class="btn">重玩一次</a>--}}
                             </div>
-                            <div class="score-note" data-share>分享成績&填寫資料，事後抽大獎喔 !</div>
+                            <div class="score-fbError">
+                                若FB分享畫面錯誤，可能因系統更新，請至FB個人頁面確認分享是否成功。
+                            </div>
+                            <div class="score-note">分享成績&填寫資料，事後抽大獎喔 !</div>
                         </div>
                     </div>
                 </div>
@@ -291,7 +302,7 @@
             <div class="browser-item">進入網頁</div>
         </div>
         <div class="browser-action">
-            <button class="btn -md" data-copy><span>複製網址</span></button>
+            <button class="btn -md" data-copy onclick="atag('click','popup','copy link')"><span>複製網址</span></button>
         </div>
     </div>
 </div>
@@ -306,8 +317,8 @@
             </div>
         </div>
         <div class="popup-action">
-            <button class="btn" data-popup-close data-voice="close" id="audio-off">關閉</button>
-            <button class="btn" data-popup-close data-voice="open" id="audio-on">開啟</button>
+            <button class="btn" data-popup-close data-voice="off" id="audio-off">關閉</button>
+            <button class="btn" data-popup-close data-voice="on" id="audio-on">開啟</button>
         </div>
     </div>
 </div>
@@ -334,8 +345,7 @@
         </div>
         <div class="popup-action">
             <!-- 流程示意用，實際請移除[data-popup-btn="win"] -->
-            <button class="btn" id="lottery" data-popup-close>立即抽</button>
-{{--            <button class="btn" data-popup-btn="win" data-popup-close>立即抽</button>--}}
+            <button class="btn" id="lottery" data-popup-close onclick="atag('click','popup','victory_draw')">立即抽</button>
         </div>
     </div>
 </div>
@@ -361,7 +371,7 @@
             </div>
         </div>
         <div class="popup-action">
-            <button class="btn" data-step-btn="level" data-popup-close id="game-lose">下一步</button>
+            <button class="btn" data-step-btn="level" data-popup-close id="game-lose" onclick="atag('click','popup','defeat_next step')">下一步</button>
         </div>
     </div>
 </div>
@@ -388,7 +398,7 @@
             </div>
         </div>
         <div class="popup-action">
-            <button class="btn" data-step-btn="level" data-popup-close>下一步</button>
+            <button class="btn" data-step-btn="level" data-popup-close  onclick="atag('click','popup','win_next step')">下一步</button>
         </div>
     </div>
 </div>
@@ -407,7 +417,7 @@
             </div>
         </div>
         <div class="popup-action">
-            <button class="btn" data-step-btn="level" data-popup-close>下一步</button>
+            <button class="btn" data-step-btn="level" data-popup-close onclick="atag('click','popup','fail_try again')">下一步</button>
         </div>
     </div>
 </div>
@@ -459,10 +469,11 @@
         persimmonLeaf: 0
     };
     var mapNum = 2;
+    var scoreLevel = '';
 </script>
 
 {{--<script src="/assets/js/game.min.js"></script>--}}
-<script src="/assets/js/game.js?v=0527"></script>
+<script src="/assets/js/game.js"></script>
 <script src="/js/lottery.js"></script>
 <script>
     var topic = 'mist';

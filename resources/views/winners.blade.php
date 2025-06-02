@@ -11,6 +11,15 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
+    <meta property="og:title" content="挑戰限時尋16食穀，三種大獎任你抽！">
+    <meta property="og:site_name" content="十六茶 療癒之森">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="限時尋穀十六茶免費送！分享挑戰成績，雲品溫泉住宿等三種大獎任你抽">
+    <meta property="og:type" content="website">
+    <link rel="image_src" href="/assets/image/share-img.jpg">
+    <meta property="og:image" content="/assets/image/share-img.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
 
 
     <link rel="manifest" href="./site.json" crossorigin="use-credentials">
@@ -61,6 +70,7 @@
             <div class="main-tit">得獎名單</div>
             <div class="main-content" data-scrollbar>
                 <div class="winners">
+		@if (\Carbon\Carbon::now()->format('Y-m-d') >= '2025-07-12') 
                     <div class="winners-group -p01">
                         <div class="winners-tit">晨光森林</div>
                         <div class="winners-name">MUJI無印良品空氣循環風扇 乙名</div>
@@ -83,7 +93,7 @@
                     </div>
                     <div class="winners-group -p03">
                         <div class="winners-tit">星語森林</div>
-                        <div class="winners-name">【雲品假期】一泊二食尊榮湖景2人房 乙名</div>
+                        <div class="winners-name">雲品溫泉酒店<br>一泊二食尊榮湖景2人房 乙名</div>
                         <div class="winners-pic">
                             <img src="./assets/image/winners/03.jpg" alt="">
                         </div>
@@ -92,11 +102,13 @@
                         </div>
                     </div>
                 </div>
+		@else
                 <!-- 無資料 -->
-                <!-- <div class="nodata">
+                <div class="nodata">
                     尚未公佈<br>
-                    敬請期待12/22開獎
-                </div> -->
+                    敬請期待2025/07/17開獎
+                </div>
+		@endif
             </div>
         </div>
     </main>
@@ -122,7 +134,7 @@
             <div class="browser-item">進入網頁</div>
         </div>
         <div class="browser-action">
-            <button class="btn -md" data-copy><span>複製網址</span></button>
+            <button class="btn -md" data-copy onclick="atag('click','popup','copy link')"><span>複製網址</span></button>
         </div>
     </div>
 </div>

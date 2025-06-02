@@ -29,15 +29,17 @@ $('#game-lose').click(function () {
     addRecord();
 });
 
-const shareUrl = window.location.origin;
+let shareUrl = window.location.origin;
 
 function fbShare() {
+    shareUrl = shareUrl + `/share/${topic}/${scoreLevel}`;
     addRecord();
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
     window.location.href = window.location.origin + '/' + topic + '/form';
 }
 
 function lineShare() {
+    shareUrl = shareUrl + `/share/${topic}/${scoreLevel.toLowerCase()}`;
     addRecord();
     window.open(`https://social-plugins.line.me/lineit/share?openExternalBrowser=1&url=${encodeURIComponent(shareUrl)}`, '_blank');
     window.location.href = window.location.origin + '/' + topic + '/form';

@@ -17,7 +17,7 @@
             ease: 'power1.out',
             onComplete: () => {
                 setTimeout(() => {
-                    window.location.href = '/list'
+                    window.location.href = './list.html'
                 }, 1000);
             }
         });

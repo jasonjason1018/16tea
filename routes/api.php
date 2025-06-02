@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/16chaAdmin/admin', 'AdminController@createAdmin');
+Route::put('/16chaAdmin/admin', 'AdminController@updateAdmin');

@@ -41,8 +41,8 @@
             <span>星語森林-抽獎名單</span>
         </a>
     </li>
-    <li class="nav-item ">
-        <a class="nav-link" href="javascript:void(0)">
+    <li class="nav-item {{ request()->is('16chaAdmin/analysis*') ? 'active' : '' }}">
+        <a class="nav-link" href="/16chaAdmin/analysis">
             <i class="fas fa-circle"></i>
             <span>數據統計</span>
         </a>

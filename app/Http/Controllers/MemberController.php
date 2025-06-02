@@ -8,6 +8,7 @@ use App\Models\MemberRecord;
 use App\Models\RecordItem;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\Tag;
 
 class MemberController extends Controller
 {
@@ -78,5 +79,16 @@ class MemberController extends Controller
         }
 
         return response('success');
+    }
+
+    public function tag(Request $request)
+    {
+        $uid = session('user')['uid'];
+        $member = Member::where('uid', '=', $uid)->first();
+        $idMember = $member->id_member;
+        $requestData = $request->input();
+        $requestData['id_member'] = $idMember;
+
+        return Tag::create($requestData);
     }
 }

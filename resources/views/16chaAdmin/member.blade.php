@@ -452,6 +452,7 @@
                                 <td width="5%">登入方式</td>
                                 <td width="10%">名稱</td>
                                 <td width="10%">IP</td>
+                                <td width="10%">時間</td>
                             </tr>
                             </thead>
                             <tbody>
@@ -463,6 +464,7 @@
                                             {{ $member['name'] }}
                                         </td>
                                         <td>{{ $member['ip'] }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($member['created_at'])->format('Y-m-d H:i:s') }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
