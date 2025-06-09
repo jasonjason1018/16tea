@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GameToken;
 use App\Models\LotteryPool;
 use App\Models\Member;
 use App\Models\MemberPrize;
@@ -13,15 +14,41 @@ use Illuminate\Support\Facades\DB;
 
 class LotteryController extends Controller
 {
-    public function lottery()
+    public function lottery($token = null)
     {
         $result = [
             'isWin' => false,
             'serial_number' => null
         ];
+
+        if (!$token) {
+            return $result;
+        }
+
         // $now = Carbon::parse('2025-06-05 12:00:00')->format('Y-m-d H:i:s');
         $now = Carbon::now()->addHours(8)->format('Y-m-d H:i:s');
         $uid = session('user')['uid'];
+
+        $gameToken = GameToken::where('uid', '=', $uid)
+            ->where('token', '=', $token)
+            ->where('active', '=', 1);
+
+        if (!$gameToken->exists()) {
+            return $result;
+        }
+
+        $token = $gameToken->first();
+        $token->active = 0;
+        $token->save();
+
+        $nowTime = Carbon::now();
+        $tokenCreateAt = Carbon::parse($token->created_at);
+
+        $diffInSeconds = $nowTime->diffInSeconds($tokenCreateAt);
+
+        if ($diffInSeconds < 20) {
+            return $result;
+        }
 
         $member = Member::where('uid', '=', $uid)->first();
 
@@ -41,6 +68,12 @@ class LotteryController extends Controller
             $user = session('user');
             $name = $user['name'];
             $source = $user['source'];
+
+            $abnormalPattern = '/^\d{2}-\d{6,7}-\d{2}(\+\d+)?$/';
+
+            if (preg_match($abnormalPattern, $name)) {
+                return $result;
+            }
 
             $memberByName = Member::select('id_member', 'name')
                 ->where('source', '=', Member::SOURCE[$source])

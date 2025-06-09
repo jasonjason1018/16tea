@@ -19,36 +19,37 @@ class LoginController extends Controller
 
     public function lineLoginCallback(Request $request)
     {
-        $client = new \GuzzleHttp\Client(); 
-			$result = $client->post('https://api.line.me/oauth2/v2.1/token', [
-			    'form_params' => [
-			        'grant_type' => 'authorization_code',
-			        'code' => $request->code,
-			        'redirect_uri' => env('LINE_REDIRECT_URI'),
-			        'client_id' => env('LINE_CLIENT_ID'),
-			        'client_secret' => env('LINE_CLIENT_SECRET')
-			    ]
-			]);
-			$str = ($result->getBody()->getContents());
-			$json = json_decode($str, true);
-			//echo $json['access_token'];
-			$result1 = $client->get('https://api.line.me/v2/profile', [
-			    'headers' => [
-			    	'Authorization' => 'Bearer '.$json['access_token']
-			    ]
-			]);
-			$str1 = ($result1->getBody()->getContents());
-			$user_data = json_decode($str1, 1);
-			
+        try {
+            $client = new \GuzzleHttp\Client();
+            $result = $client->post('https://api.line.me/oauth2/v2.1/token', [
+                'form_params' => [
+                    'grant_type' => 'authorization_code',
+                    'code' => $request->code,
+                    'redirect_uri' => env('LINE_REDIRECT_URI'),
+                    'client_id' => env('LINE_CLIENT_ID'),
+                    'client_secret' => env('LINE_CLIENT_SECRET')
+                ]
+            ]);
+            $str = ($result->getBody()->getContents());
+            $json = json_decode($str, true);
+            //echo $json['access_token'];
+            $result1 = $client->get('https://api.line.me/v2/profile', [
+                'headers' => [
+                    'Authorization' => 'Bearer '.$json['access_token']
+                ]
+            ]);
+            $str1 = ($result1->getBody()->getContents());
+            $user_data = json_decode($str1, 1);
+
             $uid = $user_data['userId'];
             $name = $user_data['displayName'];
             $picture = $user_data['pictureUrl'];
-        // try{
-        //     $user = Socialite::driver('line')->user();
+            // try{
+            //     $user = Socialite::driver('line')->user();
 
-        //     $user = (array)$user->user;
+            //     $user = (array)$user->user;
 
-        //     $uid = $user['sub'];
+            //     $uid = $user['sub'];
 
             $isMemberExists = $this->isMemberExists($uid);
 
@@ -67,12 +68,11 @@ class LoginController extends Controller
                 'picture' => $picture,
                 'source' => 'line'
             ]);
+        } catch (\Throwable $e) {
+            return redirect('/login');
+        }
 
-            return redirect('/list');
-        // } catch (Exception $e) {
-        
-        //     return redirect('/list');
-        // }
+        return redirect('/list');
     }
 
     public function fbLogin()

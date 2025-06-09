@@ -58,7 +58,7 @@ Route::group(['prefix' => 'login'], function () {
 Route::get('/logout', 'LoginController@logout');
 
 Route::group(['prefix' => 'api'], function () {
-    Route::get('/lottery', 'LotteryController@lottery');
+    Route::get('/lottery/{token}', 'LotteryController@lottery');
     Route::post('/form', 'FormController@insertForm');
     Route::post('/score', 'MemberController@score');
     Route::post('/16chaAdmin/login', 'LoginController@adminLogin');

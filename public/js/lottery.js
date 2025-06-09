@@ -1,6 +1,6 @@
 function handleLottery () {
     $.ajax({
-        url: '/api/lottery',
+        url: '/api/lottery/' . token,
         type: 'GET',
         success: function(response) {
             $('#lottery').off('click');

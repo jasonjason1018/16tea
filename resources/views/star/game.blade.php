@@ -533,6 +533,7 @@
         var topic = 'star';
         var levels = @json($levels);
         var audioStatus = @json($audioStatus);
+        var token = @json($token);
     </script>
 </body>
 

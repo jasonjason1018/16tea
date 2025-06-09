@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Models\GameAudioLog;
+use App\Models\GameToken;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class GameController extends Controller
 {
@@ -26,6 +28,10 @@ class GameController extends Controller
 
     public function morningGame()
     {
+        $uid = session('user')['uid'];
+        $token = $this->getToken($uid);
+        $token = $token->token;
+
         $levels = 'morning';
 
         $query = $this->checkAudioLog($levels);
@@ -43,12 +49,17 @@ class GameController extends Controller
         return view('morning.game', [
                 'levels' => $levels,
                 'audioPopup' => $audioPopup,
-                'audioStatus' => $audioStatus
+                'audioStatus' => $audioStatus,
+                'token' => $token
             ]);
     }
 
     public function mistGame()
     {
+        $uid = session('user')['uid'];
+        $token = $this->getToken($uid);
+        $token = $token->token;
+
         $levels = 'mist';
 
         $query = $this->checkAudioLog($levels);
@@ -66,12 +77,17 @@ class GameController extends Controller
         return view('mist.game', [
             'levels' => $levels,
             'audioPopup' => $audioPopup,
-            'audioStatus' => $audioStatus
+            'audioStatus' => $audioStatus,
+            'token' => $token
         ]);
     }
 
     public function starGame()
     {
+        $uid = session('user')['uid'];
+        $token = $this->getToken($uid);
+        $token = $token->token;
+
         $levels = 'star';
 
         $query = $this->checkAudioLog($levels);
@@ -89,7 +105,18 @@ class GameController extends Controller
         return view('star.game', [
             'levels' => $levels,
             'audioPopup' => $audioPopup,
-            'audioStatus' => $audioStatus
+            'audioStatus' => $audioStatus,
+            'token' => $token
+        ]);
+    }
+
+    private function getToken($uid)
+    {
+        $token = Hash::make($uid);
+
+        return GameToken::create([
+            'uid' => $uid,
+            'token' => $token,
         ]);
     }
 
