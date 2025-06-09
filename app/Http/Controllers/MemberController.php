@@ -85,7 +85,7 @@ class MemberController extends Controller
     {
         $uid = session('user')['uid'];
         $member = Member::where('uid', '=', $uid)->first();
-        $idMember = $member->id_member;
+        $idMember = $member->id_member ?? 0;
         $requestData = $request->input();
         $requestData['id_member'] = $idMember;
 

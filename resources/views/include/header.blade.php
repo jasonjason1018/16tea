@@ -1,3 +1,4 @@
+<script src="/assets/lib/jquery-3.7.1.min.js"></script>
 <header class="header">
     <div class="header-wrap">
         <div class="header-logo">
@@ -69,6 +70,15 @@
     </div>
 </header>
 <script>
+
+    let segments = @json(request()->segments());
+    let lastSegment = segments[segments.length - 1];
+    if (lastSegment == undefined) {
+        lastSegment = 'index';
+    }
+    
+    atag('page', '', lastSegment);
+
     function atag(action, pageName, label) {
         $.ajax({
             url: '/api/tag',

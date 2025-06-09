@@ -464,7 +464,7 @@
                                             {{ $member['name'] }}
                                         </td>
                                         <td>{{ $member['ip'] }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($member['created_at'])->format('Y-m-d H:i:s') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($member['created_at'])->addHour(8)->format('Y-m-d H:i:s') }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

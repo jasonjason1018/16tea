@@ -50,6 +50,43 @@
         gtag('js', new Date());
         gtag('config', 'G-GNB1EGND17');
     </script>
+    <script>
+        !function (t, a, e, n) {
+        if (!t.TNLMGTag) {
+            t.TNLMGTag = function () {
+            t.TNLMGTag.dataList.push(Array.prototype.slice.call(arguments));
+            }, t.TNLMGTag.dataList = t.TNLMGTag.dataList || [];
+            var i = a.getElementsByTagName('script')[0],
+            s = a.createElement('script');
+            s.async = !0, s.src = 'https://tnlmgtag.ad2iction.com/sdk/tnlmg-tag.min.js', i.parentNode.insertBefore(s, i);
+        }
+        }(window, document);
+    </script>
+
+            
+    <script>
+        // 設定網站序號
+        TNLMGTag('config', '80f4a881ca000152628e22ae409c814aac541f8548816e4eb045757159a10923');
+        // 全域設定：設定是否允許自動追蹤 engaged 相關事件。
+        TNLMGTag('set', 'allow_engaged_events', true);
+        // 觸發 page_view 事件
+        TNLMGTag('track', 'page_view');
+    </script>
+    @if (session()->has('user'))
+        <script>
+            !function(b,r,i,d,g,e,w,l){if(b._bw)return;var j=r.createElement(i);j.async=!0;j.src=d;var d=r.getElementsByTagName(i)[0];d.parentNode.insertBefore(j,d)}(window,document,'script','https://img.scupio.com/js/pixel.js');
+            (window._bwq = window._bwq || []).push(['init', '1690-12GH447Y1MC9TJ0', {
+                ulid: '{{ session('user')['uid'] }}',
+            }]);
+            (window._bwq = window._bwq || []).push(['trackSingle', '1690-12GH447Y1MC9TJ0', 'PageView']);
+        </script>
+    @else
+        <script>
+            !function(b,r,i,d,g,e,w,l){if(b._bw)return;var j=r.createElement(i);j.async=!0;j.src=d;var d=r.getElementsByTagName(i)[0];d.parentNode.insertBefore(j,d)}(window,document,'script','https://img.scupio.com/js/pixel.js');
+            (window._bwq = window._bwq || []).push(['init', '1690-12GH447Y1MC9TJ0', {}]);
+            (window._bwq = window._bwq || []).push(['trackSingle', '1690-12GH447Y1MC9TJ0', 'PageView']);
+        </script>
+    @endif
 
 </head>
 

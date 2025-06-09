@@ -19,7 +19,8 @@ class LotteryController extends Controller
             'isWin' => false,
             'serial_number' => null
         ];
-        $now = Carbon::parse('2025-06-05 12:00:00')->format('Y-m-d H:i:s');
+        // $now = Carbon::parse('2025-06-05 12:00:00')->format('Y-m-d H:i:s');
+        $now = Carbon::now()->addHours(8)->format('Y-m-d H:i:s');
         $uid = session('user')['uid'];
 
         $member = Member::where('uid', '=', $uid)->first();
@@ -64,7 +65,7 @@ class LotteryController extends Controller
                 return $result;
             }
 
-            $quantity = LotteryPool::where('end_at', '<=', $now)->get()->sum('quantity');
+            $quantity = LotteryPool::where('start_at', '<=', $now)->get()->sum('quantity');
             $winningOdds = $lotteryPool->winning_odds;
             $memberPrizeCount = MemberPrize::count();
 

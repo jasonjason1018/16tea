@@ -2,7 +2,7 @@
     <meta property="og:url"           content="/" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="{{ $title }}" />
-    <meta property="og:description"   content="挑戰成功立即抽千瓶十六茶，還有雲品住宿等三種大獎任你抽！" />
+    <meta property="og:description"   content="限時尋穀立即抽千瓶十六茶，還有雲品住宿等三種大獎任你抽！" />
     <meta property="og:image" content="{{ asset('assets/image/share_' . $topicNumber . '_' . $scoreLevel . '.jpg') }}">
 
     {{--    <meta property="og:title" content="{{ $title }}">--}}

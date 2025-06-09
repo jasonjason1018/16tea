@@ -655,6 +655,7 @@ body.-menuOpen {
   font-size: 25.652173913px;
   border-radius: 16.5217391304px;
   background-color: #3c599b;
+  box-shadow: none;
 }
 
 .btn.-line {
@@ -664,6 +665,7 @@ body.-menuOpen {
   font-size: 25.652173913px;
   border-radius: 16.5217391304px;
   background-color: #22ba4f;
+  box-shadow: none;
 }
 
 @media only screen and (max-width: 1023px) {
@@ -1061,8 +1063,8 @@ p {
   visibility: hidden;
 }
 
-.-gnT {
-  color: #035909;
+.-txtG {
+  display: inline-block;
 }
 
 

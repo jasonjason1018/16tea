@@ -442,80 +442,32 @@
                 <div>
                     <div class="card">
                         <div class="card-body">
-                            <div class="mb-2">共：{{ $memberPrizes->total() }}人</div>
+                            <div class="d-flex justify-content-around mb-3" id="pagination">
+                                <button class="btn btn-sm btn-primary"><-前一日</button>
+                                <span id="today"></span>
+                                <button class="btn btn-sm btn-primary">後一日-></button>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <td width="1%">名稱</td>
-                                        <td width="5%">pin</td>
-                                        <td width="10%">中獎時間</td>
+                                        <td width="30%">時段</td>
+                                        <td width="30%">贈品數</td>
+                                        <td width="30%">中獎率</td>
                                     </tr>
                                     </thead>
-                                    <tbody>
-                                        @foreach($memberPrizes as $memberPrize)
-                                            <tr>
-                                                <td>{{ $memberPrize->name }}</td>
-                                                <td>
-                                                    {{ $memberPrize->serial_number }}
-                                                </td>
-                                                <td>{{ \Carbon\Carbon::parse($memberPrize->created_at)->addHour(8)->format('Y-m-d H:i:s') }}</td>
-                                            </tr>
-                                        @endforeach
+                                    <tbody id="tbody">
+                                        <tr id="table-content">
+
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3"></td>
+                                        </tr>
+                                        <div id="prize-info">
+
+                                        </div>
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="">
-                                @if ($memberPrizes->hasPages())
-                                    <ul class="pagination">
-                                        {{-- 上一頁 --}}
-                                        @if ($memberPrizes->onFirstPage())
-                                            <li class="page-item disabled"><span class="page-link">«</span></li>
-                                        @else
-                                            <li class="page-item">
-                                                <a class="page-link" href="{{ $memberPrizes->url(1) }}">«</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="{{ $memberPrizes->previousPageUrl() }}">‹</a>
-                                            </li>
-                                        @endif
-
-                                        {{-- 中間頁碼 --}}
-                                        @php
-                                            $start = max($memberPrizes->currentPage() - 2, 1);
-                                            $end = min($memberPrizes->currentPage() + 2, $memberPrizes->lastPage());
-                                        @endphp
-
-                                        @if ($start > 1)
-                                            <li class="page-item disabled"><span class="page-link">...</span></li>
-                                        @endif
-
-                                        @for ($i = $start; $i <= $end; $i++)
-                                            @if ($i == $memberPrizes->currentPage())
-                                                <li class="page-item active"><span class="page-link">{{ $i }}</span></li>
-                                            @else
-                                                <li class="page-item"><a class="page-link" href="{{ $memberPrizes->url($i) }}">{{ $i }}</a></li>
-                                            @endif
-                                        @endfor
-
-                                        @if ($end < $memberPrizes->lastPage())
-                                            <li class="page-item disabled"><span class="page-link">...</span></li>
-                                        @endif
-
-                                        {{-- 下一頁 --}}
-                                        @if ($memberPrizes->hasMorePages())
-                                            <li class="page-item">
-                                                <a class="page-link" href="{{ $memberPrizes->nextPageUrl() }}">›</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="{{ $memberPrizes->url($memberPrizes->lastPage()) }}">»</a>
-                                            </li>
-                                        @else
-                                            <li class="page-item disabled"><span class="page-link">›</span></li>
-                                            <li class="page-item disabled"><span class="page-link">»</span></li>
-                                        @endif
-                                    </ul>
-                                @endif
                             </div>
                         </div>
                     </div>
@@ -529,6 +481,89 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="/assets/lib/jquery-3.7.1.min.js"></script>
+    <script>
+        var now = formatDate(new Date());
+
+        function getNextDateInfo () {
+            now = new Date(now); // 保證是 Date object
+            now.setDate(now.getDate() + 1); // 正確地修改日期
+            now = formatDate(now);
+            getLotteryInfo();
+        }
+
+        function getPrevDateInfo () {
+            now = new Date(now); // 保證是 Date object
+            now.setDate(now.getDate() - 1); // 正確地修改日期
+            now = formatDate(now);
+            getLotteryInfo();
+        }
+
+        function formatDate(date) {
+            const Y = date.getFullYear();
+            const m = String(date.getMonth() + 1).padStart(2, '0'); // 月份從 0 開始
+            const d = String(date.getDate()).padStart(2, '0');
+            return `${Y}-${m}-${d}`;
+        }
+
+        function getLotteryInfo() {
+            $.ajax({
+                url: '/api/getLotteryInfo',
+                method: 'GET',
+                data: {
+                    today: now
+                },
+                success: function (response) {
+                    now = response.today;
+                    prevButton = response.hasPrev
+                        ? '<button class="btn btn-sm btn-primary" onclick="getPrevDateInfo()"><-前一日</button>'
+                        : '<button class="btn btn-sm btn-primary" disabled><-前一日</button>'
+                    nextButton = response.hasNext
+                        ? '<button class="btn btn-sm btn-primary" onclick="getNextDateInfo()">後一日-></button>'
+                        : '<button class="btn btn-sm btn-primary" disabled>後一日-></button>'
+
+                    $('#pagination').html(`
+                        ${prevButton}
+                            <span id="today">${ response.today }</span>
+                        ${nextButton}
+                    `);
+                    let html = '';
+                    response.today_lottery_info.forEach(function (v, k) {
+                        html += `
+                            <tr>
+                                <td align="center">${ v.start_at } - ${ v.end_at }</td>
+                                <td>${ v.quantity }</td>
+                                <td>${ v.winning_odds }</td>
+                            </tr>`;
+                    });
+
+                    html += `<tr><td colspan="3"></td></tr>`;
+                    html += `
+                        <tr>
+                            <td></td>
+                            <td>目前累積贈品數</td>
+                            <td>${ response.prize_info.quantity }</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>目前已送出贈品數</td>
+                            <td>${ response.prize_info.used_prize_num }</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>目前待送出贈品數</td>
+                            <td>${ response.prize_info.unuse_prize_num }</td>
+                        </tr>
+                    `
+                    $('#tbody').html(html);
+
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            getLotteryInfo();
+        });
+    </script>
 
 </body>
 </html>

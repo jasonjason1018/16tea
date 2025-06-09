@@ -7,6 +7,7 @@ use App\Models\Game;
 use App\Models\Member;
 use App\Models\MemberPrize;
 use App\Models\Tag;
+use App\Models\LotteryPool;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -105,12 +106,20 @@ class AdminController extends Controller
 
     public function analysis()
     {
-        $tags = Tag::select('action', 'page_name', 'label', DB::raw('COUNT(*) as count'))
+        $click_tags = Tag::select('action', 'page_name', 'label', DB::raw('COUNT(*) as count'))
+            ->where('action', '=', 'click')
+            ->groupBy('label', 'action', 'page_name')
+            ->orderBy('page_name')
+            ->get();
+
+        $page_tags = Tag::select('action', 'page_name', 'label', DB::raw('COUNT(*) as count'))
+            ->where('action', '=', 'page')
             ->groupBy('label', 'action', 'page_name')
             ->get();
 
         return view('16chaAdmin.analysis', [
-            'tags' => $tags
+            'click_tags' => $click_tags,
+            'page_tags' => $page_tags
         ]);
     }
 
@@ -145,5 +154,59 @@ class AdminController extends Controller
     {
         session()->forget('admin');
         return redirect('/16chaAdmin');
+    }
+
+    public function getLotteryInfo(Request $request)
+    {
+        $today = $request->get('today');
+
+        $todayInfo = $today;
+        $hasTodayLotteryInfo = LotteryPool::whereBetween('end_at', [
+            Carbon::parse($today)->startOfDay()->format('Y-m-d H:i:s'),
+            Carbon::parse($today)->endOfDay()->format('Y-m-d H:i:s')
+        ])->exists();
+
+        $maxDate = LotteryPool::max('end_at');
+        $maxDate = Carbon::parse($maxDate)->format('Y-m-d');
+        $minDate = LotteryPool::min('end_at');
+        $minDate = Carbon::parse($minDate)->format('Y-m-d');
+
+        if (!$hasTodayLotteryInfo) {
+            $todayInfo = $maxDate;
+            $today = $maxDate;
+        }
+
+        $startAt = Carbon::parse($today)->startOfDay();
+        $endAt = Carbon::parse($today)->endOfDay();
+
+        $now = Carbon::now()->addHours(8)->format('Y-m-d H:i:s');
+        $quantity = LotteryPool::whereBetween('start_at', [$startAt, $endAt])->sum('quantity');
+        $quantity = LotteryPool::where('start_at', '<=', $now)->sum('quantity');
+
+        $usedPrizeNum = MemberPrize::count();
+
+        $unusePrizeNum = $quantity - $usedPrizeNum;
+
+        $todayLotteryInfo = LotteryPool::where(function ($query) use ($startAt, $endAt) {
+            $query->where('start_at', '<=', $endAt)
+                ->where('end_at', '>=', $startAt);
+        })->get();
+
+        foreach ($todayLotteryInfo as $lotteryInfo) {
+            $lotteryInfo->start_at = Carbon::parse($lotteryInfo->start_at)->format('H:i');
+            $lotteryInfo->end_at = Carbon::parse($lotteryInfo->end_at)->format('H:i');
+        }
+
+        return [
+            'prize_info' => [
+                'quantity' => $quantity,
+                'used_prize_num' => $usedPrizeNum,
+                'unuse_prize_num' => $unusePrizeNum,
+            ],
+            'today_lottery_info' => $todayLotteryInfo,
+            'today' => $todayInfo,
+            'hasPrev' => Carbon::parse($today)->gt(Carbon::parse($minDate)),
+            'hasNext' => Carbon::parse($today)->lt(Carbon::parse($maxDate))
+        ];
     }
 }

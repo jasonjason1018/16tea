@@ -17,6 +17,12 @@
             <span>參與人員名單</span>
         </a>
     </li>
+    <li class="nav-item {{ request()->is('16chaAdmin/lottery*') ? 'active' : '' }}">
+        <a class="nav-link" href="/16chaAdmin/lottery">
+            <i class="fas fa-circle"></i>
+            <span>贈獎機率</span>
+        </a>
+    </li>
     <li class="nav-item {{ request()->is('16chaAdmin/winner*') ? 'active' : '' }}">
         <a class="nav-link" href="/16chaAdmin/winner">
             <i class="fas fa-circle"></i>

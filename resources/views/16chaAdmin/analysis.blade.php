@@ -446,15 +446,43 @@
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
+                                        <td colspan="3" align="center">Click Tags</td>
+                                    </tr>
+                                    <tr>
                                         <td width="10%">點擊分類</td>
                                         <td width="10%">標籤</td>
                                         <td width="5%">統計</td>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($tags as $tag)
+                                    @foreach($click_tags as $tag)
                                         <tr>
-                                            <td>{{ $tag->action }}</td>
+                                            <td>{{ $tag->page_name }}</td>
+                                            <td>
+                                                <a href="javascript:;" onclick="chart('{{ $tag->action }}', '{{ $tag->page_name }}', '{{ $tag->label }}')">
+                                                    {{ $tag->label }}
+                                                </a>
+                                            </td>
+                                            <td>{{ $tag->count }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <td colspan="3" align="center">Page Tags</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="10%">頁面</td>
+                                        <td width="5%">統計</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($page_tags as $tag)
+                                        <tr>
                                             <td>
                                                 <a href="javascript:;" onclick="chart('{{ $tag->action }}', '{{ $tag->page_name }}', '{{ $tag->label }}')">
                                                     {{ $tag->label }}

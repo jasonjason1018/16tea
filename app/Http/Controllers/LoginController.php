@@ -14,35 +14,65 @@ class LoginController extends Controller
     public function lineLogin()
     {
         return Socialite::driver('line')->redirect();
+        //return Socialite::driver('line')->stateless()->redirect();
     }
 
     public function lineLoginCallback(Request $request)
     {
-        $user = Socialite::driver('line')->user();
+        $client = new \GuzzleHttp\Client(); 
+			$result = $client->post('https://api.line.me/oauth2/v2.1/token', [
+			    'form_params' => [
+			        'grant_type' => 'authorization_code',
+			        'code' => $request->code,
+			        'redirect_uri' => env('LINE_REDIRECT_URI'),
+			        'client_id' => env('LINE_CLIENT_ID'),
+			        'client_secret' => env('LINE_CLIENT_SECRET')
+			    ]
+			]);
+			$str = ($result->getBody()->getContents());
+			$json = json_decode($str, true);
+			//echo $json['access_token'];
+			$result1 = $client->get('https://api.line.me/v2/profile', [
+			    'headers' => [
+			    	'Authorization' => 'Bearer '.$json['access_token']
+			    ]
+			]);
+			$str1 = ($result1->getBody()->getContents());
+			$user_data = json_decode($str1, 1);
+			
+            $uid = $user_data['userId'];
+            $name = $user_data['displayName'];
+            $picture = $user_data['pictureUrl'];
+        // try{
+        //     $user = Socialite::driver('line')->user();
 
-        $user = (array)$user->user;
+        //     $user = (array)$user->user;
 
-        $uid = $user['sub'];
+        //     $uid = $user['sub'];
 
-        $isMemberExists = $this->isMemberExists($uid);
+            $isMemberExists = $this->isMemberExists($uid);
 
-        if (!$isMemberExists) {
-            Member::create([
-                'name' => Crypt::encrypt($user['name']),
-                'source' => Member::SOURCE['line'],
+            if (!$isMemberExists) {
+                Member::create([
+                    'name' => Crypt::encrypt($name),
+                    'source' => Member::SOURCE['line'],
+                    'uid' => $uid,
+                    'ip' => $this->getIp()
+                ]);
+            }
+
+            session()->put('user', [
                 'uid' => $uid,
-                'ip' => $this->getIp()
+                'name' => $name,
+                'picture' => $picture,
+                'source' => 'line'
             ]);
-        }
 
-        session()->put('user', [
-            'uid' => $uid,
-            'name' => $user['name'],
-            'picture' => $user['picture'],
-            'source' => 'line'
-        ]);
-
-        return redirect('/list');
+            return redirect('/list');
+        // } catch (Exception $e) {
+        
+        //     return redirect('/list');
+        // }
     }
 
     public function fbLogin()
@@ -52,27 +82,33 @@ class LoginController extends Controller
 
     public function fbLoginCallback(Request $request)
     {
-        $user = Socialite::driver('facebook')->user();
+        //$user = Socialite::driver('facebook')->user();
+        try {
+            $user = Socialite::driver('facebook')->stateless()->user();
 
-        $uid = $user->getId();
+            $uid = $user->getId();
 
-        $isMemberExists = $this->isMemberExists($uid);
+            $isMemberExists = $this->isMemberExists($uid);
 
-        if (!$isMemberExists) {
-            Member::create([
-                'name' => Crypt::encrypt($user->getName()),
-                'source' => Member::SOURCE['fb'],
+            if (!$isMemberExists) {
+                Member::create([
+                    'name' => Crypt::encrypt($user->getName()),
+                    'source' => Member::SOURCE['fb'],
+                    'uid' => $uid,
+                    'ip' => $this->getIp()
+                ]);
+            }
+
+            session()->put('user', [
                 'uid' => $uid,
-                'ip' => $this->getIp()
+                'name' => $user->getName(),
+                'picture' => $user->getAvatar(),
+                'source' => 'fb'
             ]);
+        } catch (\Exception $e) {
+            // 可以 log 一下錯誤方便 debug
+            return redirect('/login');
         }
-
-        session()->put('user', [
-            'uid' => $uid,
-            'name' => $user->getName(),
-            'picture' => $user->getAvatar(),
-            'source' => 'fb'
-        ]);
 
         return redirect('/list');
     }

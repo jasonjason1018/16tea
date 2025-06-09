@@ -472,7 +472,7 @@
                                                 <td>{{ $form->name }}</td>
                                                 <td>{{ $form->mobile }}</td>
                                                 <td>{{ $form->email }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($form->created_at)->format('Y-m-d') }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($form->created_at)->addHour(8)->format('Y-m-d') }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
